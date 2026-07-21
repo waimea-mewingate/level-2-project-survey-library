@@ -62,28 +62,28 @@ I will do this by prioritising tasks- main ones first. I also will try to displa
 
 ## Functionality
 
-Replace this text with a clear explanation of what the implication means.
+Creating a system that works.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+Systems that don't work are useless! Systems that are slow or broken are frustrating and hinder the success of the project.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to test every function as it is added and improved upon to make sure that it works as it should, as well as heving to test the system on mobile and desktop.
 
 
 
-## NAME OF IMPLICATION 5
+## Aesthetics
 
-Replace this text with a clear explanation of what the implication means.
+The visual design of the system.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+A consistent colour palette and style matter to help avoid confusion.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to keep in mind minimalism and consistency when designing my site- a limited palette and simple, clean layout as much as possible.
 
 
