@@ -4,14 +4,17 @@
 ===========================================================*/
 
 :root {
-    --text-col:         #111;
+    --text-col:         #404040;
 
-    --back-col:         #eee;
-    --back-col-panel:   #fff;
+    --back-col:         #FAFAFA;
+    --back-col-panel:   #FFF;
 
-    --border-col:       #355;
+    --border-col:       #C8C8C8;
 
-    --accent-col:       #e43;
+    --secondary-col:    #F7D04F;
+    --accent-col: var(--text-col);
+
+
 }
 
 
@@ -45,6 +48,7 @@ body > header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    background-color: var(--secondary-col);
 
     nav {
         display: flex;
@@ -77,7 +81,7 @@ main > h2 {
     .note {
         padding: 1rem;
         box-shadow: 0 0.5rem 1rem #0004;
-        border: 1px solid var(--border-col);
+        border: 2px solid var(--border-col);
         background-color: var(--back-col-panel);
 
         header {
@@ -92,7 +96,7 @@ main > h2 {
         }
 
         &.pinned {
-            border-color: var(--accent-col);
+            border-color: var(--secondary-col);
         }
     }
 }

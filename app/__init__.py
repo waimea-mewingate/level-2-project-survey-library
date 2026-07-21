@@ -1,6 +1,6 @@
 #===========================================================
-# PROJECT NAME HERE
-# By YOUR NAME HERE
+# Survey Instrument Library
+# By Maia Wingate
 #===========================================================
 
 from flask import Flask, request, session, render_template, flash, redirect, send_file, make_response
@@ -35,10 +35,6 @@ def show_notes():
         notes = db.execute(sql, params).fetchall()
 
         flash("Test message")
-        flash("Test SUCCESS message", "success")
-        flash("Test INFO message", "info")
-        flash("Test WARNING message", "warning")
-        flash("Test ERROR message", "error")
 
         return render_template("pages/note_list.jinja", notes=notes)
 
