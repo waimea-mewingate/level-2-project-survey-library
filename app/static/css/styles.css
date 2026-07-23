@@ -1,18 +1,23 @@
 /*===========================================================
-  PROJECT NAME HERE
-  By YOUR NAME HERE
+  Survey Instrument Library
+  By Maia Wingate
 ===========================================================*/
 
 :root {
-    --text-col:         #404040;
+    --palette-col-1: #404040;
+    --palette-col-2: #e8e8e8;
+    --palette-col-3: #C8C8C8;
+    --palette-col-4: #F7D04F;
 
-    --back-col:         #FAFAFA;
-    --back-col-panel:   #FFF;
+    --text-col:       var(--palette-col-1);
 
-    --border-col:       #C8C8C8;
+    --back-col:       var(--palette-col-2);
+    --back-col-panel: #FFF;
 
-    --secondary-col:    #F7D04F;
-    --accent-col: var(--text-col);
+    --border-col:     var(--palette-col-3);
+
+    --secondary-col:  var(--palette-col-4);
+    --accent-col:     var(--palette-col-1);
 
 
 }
