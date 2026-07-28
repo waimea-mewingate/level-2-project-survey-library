@@ -3,7 +3,8 @@
 
 ## Sprint Goals
 
-Develop a design for the database and a UI prototype that simulates the key functionality of the system. Test and refine the UI so that it can serve as the model for the next phase of development in Sprint 2.
+- Develop a design for the database and a UI prototype that simulates the key functionality of the system. 
+- Test and refine the UI so that it can serve as the model for the next phase of development in Sprint 2.
 
 ### Specific Goals
 
@@ -25,22 +26,53 @@ Develop a design for the database and a UI prototype that simulates the key func
 
 ## Initial Database Design
 
-Replace this text with notes regarding the DB design.
+I have created a schema for the DB that I will talk through with my end-user. It has tables for: 
+- **the surveyors** (my end-users)
+- **the instruments** to be used on jobs and: 
+    - their status (dirty etc),
+    - the time the status was last modified, 
+    - the instrument name.
+- **bookings**: 
+    - the id, 
+    - instrument booked, 
+    - surveyor(s) booking the instrument, 
+    - the date, 
+    - whether the booking is flexible,
+    - a check in/out for the instrument, 
+    - and any notes. 
 
-![DB Design](screenshots/placeholder.png)
-
+![v1 DB schema](screenshots/schema-v1.png)
 
 ### Required Data Input
 
-Replace this text with a description of what data will be input, and where / how it will be obtained.
+Data to be input:
+
+**Initially:**
+- Surveyor data (names)
+- Instrument data
+    - name
+    - status
+    - status changelog
+
+**Then:**
+- instrument to be booked
+- surveyors requesting instrument
+- date
+- flexibility of date
+- check in/out
+- notes.
 
 ### Required Data Output
 
-Replace this text with a description of the outputs for the system - what types of data will be displayed?
+Users will be able to see:
+- **Instrument data**
+- **Booking list** - filter by date/instrument/surveyor/negotiable and be able to see history as well
+- (Ask end-user) Noticeboard for requesting booking dates?
 
 ### Required Data Processing
 
 Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
+
 
 
 ## UI 'Flow'
