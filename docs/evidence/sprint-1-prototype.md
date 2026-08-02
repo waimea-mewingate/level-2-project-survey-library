@@ -8,13 +8,11 @@
 
 ### Specific Goals
 
-**Edit these goals as needed**
-
 - Design the database:
     - Tables
     - Fields / types
     - Primary keys
-    - Default / nullable values
+    - Nullable values
     - Relationships (foreign keys)
 - Design the UI
     - Key pages
@@ -68,11 +66,14 @@ Users will be able to see:
 - **Instrument data**
 - **Booking list** - filter by date/instrument/surveyor/negotiable and be able to see history as well
 - (Ask end-user) Noticeboard for requesting booking dates?
+**UPDATE** End-user says possibly. Keep as optional
 
 ### Required Data Processing
 
 Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
 
+## Update
+I had a meeting with my end-user and showed him my DB design. He confirmed that instruments would be booked for multiple days and responded as "possibly" for a notices screen.
 
 
 ## UI 'Flow'
