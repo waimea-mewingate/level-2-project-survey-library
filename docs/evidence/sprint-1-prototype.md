@@ -68,21 +68,17 @@ Users will be able to see:
 - (Ask end-user) Noticeboard for requesting booking dates?
 **UPDATE** End-user says possibly. Keep as optional
 
-### Required Data Processing
-
-Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
-
 ## Update
 I had a meeting with my end-user and showed him my DB design. He confirmed that instruments would be booked for multiple days and responded as "possibly" for a notices screen.
 
 
 ## UI 'Flow'
 
-The first stage of prototyping was to explore how the UI might 'flow' between states, based on the required functionality.
+This is my first go at designing the pages for my system:
 
-This Figma demo shows the initial design for the UI 'flow':
+**https://design.penpot.app/#/view?file-id=ddb7145f-a1be-80bb-8008-6c683cf92e39&page-id=ddb7145f-a1be-80bb-8008-6c683cf92e3a&section=interactions&index=0&share-id=6f06cb60-262a-804c-8008-6c702ed9e385**
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+![ui-template](screenshots/ui-v1.png)
 
 ### Testing
 
