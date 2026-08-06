@@ -82,13 +82,9 @@ This is my first go at designing the pages for my system:
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-*IMPROVED FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+I gave my flow template to my dad to test and he gave me the OK to continue with it- he is happy with the initial design, especially the instrument page. He also gave me some more info that I can use when designing my system in an email:
+![Email screenshot](screenshots/feedback-email-flow.png)
+He also told me *"Don't need any more pages- less is always better."*
 
 
 ## Initial UI Prototype
