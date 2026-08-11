@@ -90,10 +90,9 @@ He also told me *"Don't need any more pages- less is always better."*
 ## Initial UI Prototype
 
 The next stage of prototyping was to develop the layout for each screen of the UI.
-
-This Figma demo shows the initial layout design for the UI:
-
-*FIGMA PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+I did add some colours etc to figure out how some of it might go before sending the whole thing to my dad for feedback 
+**NOTE** Only the first two pages are changed from the flow prototype and the only instrument link that works from the home page is the 12i, everything else is the same. This is to avoid going off-track in between feedback runs. 
+https://design.penpot.app/#/view?file-id=3be9e5e1-190f-8090-8008-7056285fd675&page-id=ddb7145f-a1be-80bb-8008-6c683cf92e3a&section=interactions&frame-id=d6288cb9-2f05-80f4-8008-6c684f808492&index=0&share-id=81f57451-85cc-819d-8008-71cb68118f68
 
 ### Testing
 
@@ -110,13 +109,12 @@ Replace this text with notes any improvements you made as a result of the testin
 
 Having established the layout of the UI screens, the prototype was refined visually, in terms of colour, fonts, etc.
 
-This Figma demo shows the UI with refinements applied:
-
-*FIGMA REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
-
-### Testing
-
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I gave a few colour options to Dad as mockups on a dummy website:
+![colour selection 1](screenshots/colour-mockup-1.jpeg)
+![colour selection 2](screenshots/colour-mockup-2.jpeg)
+![colour selection 3](screenshots/colour-mockup-3.jpeg)
+![colour selection 4](screenshots/colour-mockup-4.jpeg)
+![colour selection 5](screenshots/colour-mockup-5.jpeg)
 
 ### Changes / Improvements
 
