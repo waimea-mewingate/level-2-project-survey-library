@@ -75,15 +75,15 @@ main > h2 {
 }
 
 
-/* Notes --------------------------------------------------*/
+/* Instruments --------------------------------------------------*/
 
-#notes {
+#instruments {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
     align-items: start;
 
-    .note {
+    .instrument {
         padding: 1rem;
         box-shadow: 0 0.5rem 1rem #0004;
         border: 2px solid var(--border-col);
@@ -100,9 +100,6 @@ main > h2 {
             font-style: italic;
         }
 
-        &.pinned {
-            border-color: var(--secondary-col);
-        }
     }
 }
 

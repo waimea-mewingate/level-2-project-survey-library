@@ -15,28 +15,26 @@
 #     SEED_DATA = "INSERT INTO name (...)" or None
 #----------------------------------------------------------------------------
 
-class NoteTable:
+class InstrumentTable:
 
-    NAME = "note"
+    NAME = "instruments"
 
     SCHEMA = """
-        CREATE TABLE note (
+        CREATE TABLE instruments (
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            title   TEXT NOT NULL,
-            body    TEXT,
-            pinned  INTEGER DEFAULT 0,
-            created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            name   TEXT NOT NULL,
+            status    TEXT,
+            status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            image   BLOB 
         )
     """
 
     SEED_DATA = """
-        INSERT INTO note (title, pinned, body)
+        INSERT INTO instruments (name, status,image)
         VALUES
-            ("Welcome!",      1, "This is a demo application using Flask, Jinja and SQLite."),
-            ("Shopping List", 0, "Milk\nBread\nEggs\nCheese"),
-            ("Meeting Notes", 0, "Discussed project timeline.\n\nAction items:\n- Review design\n- Update docs"),
-            ("Recipe: Pasta", 0, "Ingredients:\n- 500g pasta\n- Tomato sauce\n- Garlic\n\nCook pasta, add sauce, enjoy!"),
-            ("Important!",    1, "Remember to backup your database regularly.")
+            ("12i GNSS", "In R Office", 12i.png),
+            ("SX10 Station", "In R Office", sx10.png),
+            ("DiNi Level", "In R Office",dini.png)
     """
 
 # Add more table classes here...
@@ -59,7 +57,7 @@ class NoteTable:
 #----------------------------------------------------------------------------
 
 TABLES = [
-    NoteTable,
+    InstrumentTable,
     # Add more tables here...
 ]
 

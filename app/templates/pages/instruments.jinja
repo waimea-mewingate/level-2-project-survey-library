@@ -1,0 +1,33 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <section id="instruments">
+
+        {% for instrument in instruments %}
+
+            <div class="instrument">
+
+                <header>
+                    <h3>{{ instruments.name }}</h3>
+                </header>
+
+                <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
+
+                <footer>
+                    Status last changed: {{ instruments.status_last_changed | local | format }}
+                </footer>
+
+            </div>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+

@@ -21,23 +21,40 @@ app = Flask(__name__)
 #===========================================================
 
 #-----------------------------------------------------------
-# Home page - Show all notes
+# Home page - Show all instruments
 #-----------------------------------------------------------
 @app.get("/")
-def show_notes():
+def show_instruments():
     with connect_db() as db:
         sql = """
-            SELECT id, title, body, pinned, created
-            FROM note
-            ORDER BY pinned DESC, created DESC
+            SELECT id, name, status, status_last_changed
+            FROM instruments
+            ORDER BY id DESC
         """
         params = ()
-        notes = db.execute(sql, params).fetchall()
+        instruments = db.execute(sql, params).fetchall()
 
         flash("Test message")
 
-        return render_template("pages/note_list.jinja", notes=notes)
+        return render_template("pages/instruments.jinja", instruments=instruments)
+    
+#-----------------------------------------------------------
+# Instrument Imaging
+#-----------------------------------------------------------
+@app.get("//{{instrument.image}}")
+def show_instruments():
+    with connect_db() as db:
+        sql = """
+            SELECT id, name, status, status_last_changed
+            FROM instruments
+            ORDER BY id DESC
+        """
+        params = ()
+        instruments = db.execute(sql, params).fetchall()
 
+        flash("Test message")
+
+        return render_template("pages/instruments.jinja", instruments=instruments)
 
 #===========================================================
 # Configure the app
