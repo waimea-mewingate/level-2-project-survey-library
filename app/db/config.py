@@ -25,7 +25,8 @@ class InstrumentTable:
             name   TEXT NOT NULL,
             status    TEXT,
             status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            image   BLOB 
+            image_data   BLOB 
+            image_mime TEXT NOT NULL
         )
     """
 
