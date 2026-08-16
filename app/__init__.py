@@ -27,7 +27,7 @@ app = Flask(__name__)
 def show_instruments():
     with connect_db() as db:
         sql = """
-            SELECT id, name, status, status_last_changed
+            SELECT id, name, status, status_last_changed, image_data
             FROM instruments
             ORDER BY id DESC
         """
@@ -71,7 +71,7 @@ def add_image():
 #-----------------------------------------------------------
 # Instrument page
 #-----------------------------------------------------------
-@app.get('/instrument/<int:id>')
+@app.get('//<int:id>')
 def get_instrument(id):
     with connect_db() as db:
         sql = "SELECT name FROM instruments WHERE id=?"
@@ -83,20 +83,20 @@ def get_instrument(id):
 #-----------------------------------------------------------
 # Instrument page w/ image
 #-----------------------------------------------------------
-@app.get('/instrument/<int:id>/image')
+@app.get('//<int:id>/image')
 def get_instrument_image(id):
     with connect_db() as db:
         sql = "SELECT image_data, image_mime FROM instruments WHERE id=?"
         params = (id,)
-        logo = db.execute(sql, params).fetchone()
+        image = db.execute(sql, params).fetchone()
 
-        if not logo:
+        if not image:
             abort(404)
 
         return make_response(
             send_file(
-                BytesIO(logo["image_data"]),
-                mimetype=logo["image_mime"]
+                BytesIO(image["image_data"]),
+                mimetype=image["image_mime"]
             )
         )
 
