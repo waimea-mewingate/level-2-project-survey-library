@@ -117,10 +117,7 @@ I gave a few colour options to Dad as mockups on a dummy website:
 ![colour selection 5](screenshots/colour-mockup-5.jpeg)
 
 ### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+Dad liked option 1.
 
 
 ## Sprint Review

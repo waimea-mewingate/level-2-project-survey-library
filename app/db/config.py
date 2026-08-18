@@ -23,19 +23,17 @@ class InstrumentTable:
         CREATE TABLE instruments (
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
             name   TEXT NOT NULL,
-            status    TEXT,
-            status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            image_data   BLOB,
-            image_mime TEXT NOT NULL
+            status    TEXT NOT NULL,
+            status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """
 
     SEED_DATA = """
-        INSERT INTO instruments (name, status, image_data, image_mime)
+        INSERT INTO instruments (name, status)
         VALUES
-            ("12i GNSS", "In R Office", "app/static/images/12i", ".png"),
-            ("SX10 Station", "In R Office", "app/static/images/sx10", ".png"),
-            ("DiNi Level", "In R Office", "app/static/images/dini", ".png")
+            ("12i GNSS", "In R Office"),
+            ("SX10 Station", "In R Office"),
+            ("DiNi Level", "In R Office")
     """
 
 class SurveyorTable:
@@ -49,7 +47,7 @@ class SurveyorTable:
     """
     SEED_DATA = """
         INSERT INTO surveyors (name)
-        VALUES
+        VALUES   
             ("Nick"),
             ("Ben"),
             ("Fred"),
@@ -63,21 +61,29 @@ class BookingTable:
     NAME      = "bookings"
     SCHEMA    = """
         CREATE TABLE bookings (
-            id  INTEGER PRIMARY KEY AUTOINCREMENT,
-            date    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             flexible    BOOLEAN DEFAULT 1,
-            in          BOOLEAN DEFAULT 0,
+            in_out      BOOLEAN DEFAULT 1,
             notes       TEXT,
             
             instrument_booked   INTEGER NOT NULL,
-            surveyor_id(s)  INTEGER NOT NULL,
+            surveyor_id      INTEGER NOT NULL,
 
             FOREIGN KEY (instrument_booked) REFERENCES instruments(id),
-            FOREIGN KEY (surveyor_id(s)) REFERENCES surveyors(id)
+            FOREIGN KEY (surveyor_id)    REFERENCES surveyors(id)
         )
     
     """
-    SEED_DATA = "INSERT INTO name (...)" or None
+    SEED_DATA = """
+        INSERT INTO bookings (instrument_booked, surveyor_id)
+        VALUES 
+            ("1", "2"),
+            ("1", "5"),
+            ("3", "1"),
+            ("3", "2"),
+            ("2", "3")
+    """
 #----------------------------------------------------------------------------
 # Table registry
 #----------------------------------------------------------------------------

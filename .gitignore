@@ -16,6 +16,7 @@ instance/
 # *.sqlite
 # *.db
 # app/db/
+app/static/uploads
 
 # IDE
 .vscode/

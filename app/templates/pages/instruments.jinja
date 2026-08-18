@@ -17,7 +17,7 @@
                     <h3>{{ instruments.name }}</h3>
                 </header>
 
-                <img src="//<int:id>/image" alt="{{ instrument.name }} image">  
+                <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
 
                 <footer>
                     Status last changed: {{ instruments.status_last_changed | local | format }}

@@ -51,18 +51,9 @@ body > header {
     display: flex;
     gap: 1rem;
     align-items: center;
-    justify-content: space-between;
+
     padding: 1rem;
     background-color: var(--secondary-col);
-
-    nav {
-        display: flex;
-        gap: 1rem;
-
-        a {
-            color: var(--accent-col);
-        }
-    }
 }
 
 
@@ -103,3 +94,25 @@ main > h2 {
     }
 }
 
+/* Individual Instrument */
+
+#instrument{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 30rem;
+    margin: 1rem;
+
+    div{
+        background-color: var(--palette-col-3);
+        border: 3px solid var(--palette-col-1);
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: 0 0.5rem 1rem #0004;
+    }
+    
+    .name{
+        font-size: large;
+    }
+
+}
