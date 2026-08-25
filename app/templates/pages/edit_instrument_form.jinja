@@ -9,13 +9,8 @@
 
 <article>
 
-    <form method="post" action="/instrument">
-        <h3>New Instrument</h3>
-
-        <label>
-            Instrument Name
-            <input name="name" type="text" required>
-        </label>
+    <form method="post" action="/instrument/{{instrument.id}}">
+        <h3>Edit Instrument</h3>
 
         <label>
             Status
@@ -26,7 +21,7 @@
                 <option>Out for Servicing</option>
             </select>
         </label>
-        <button>Add Instrument</button>
+        <button>Update</button>
 
     </form>
 

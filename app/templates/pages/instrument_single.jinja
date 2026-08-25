@@ -13,7 +13,25 @@
     <div class="status">
         <h2>{{instrument.status}}</h2>
         <h4>Last updated:</h4>
-        <p>{{instrument.status_last_changed | local | format}}</p>
+        <p>{{ instrument.status_last_changed | format_human }}</p>
+        
+        <article>
+            <form method="post" action="/instrument/{{ instrument.id }}">
+                <h3>Edit Instrument</h3>
+
+                <label>
+                    Status
+                    <select name="status" required>
+                        <option>In Office - Richmond</option>
+                        <option>In Office - Mot</option>
+                        <option>In Use - In Field</option>
+                        <option>Out for Servicing</option>
+                    </select>
+                </label>
+                <button>Update</button>
+            </form>
+        </article>
+
     </div>
 
 </section>

@@ -37,8 +37,8 @@ def show_instruments():
         flash("Test message")
 
         return render_template("pages/instruments.jinja", instruments=instruments)
-#----------------------------------------------------------
-# Instrument page
+#-----------------------------------------------------------
+# Single instrument page with status editing
 #-----------------------------------------------------------
 @app.get('/instrument/<int:id>')
 def get_instrument(id):
@@ -52,6 +52,24 @@ def get_instrument(id):
         instrument = db.execute(sql, params).fetchone()
 
         return render_template("pages/instrument_single.jinja", instrument=instrument)
+    
+# Process ------------------------
+@app.post("/instrument/<int:id>")
+def update_instrument(id): 
+
+    status = request.form.get('status', '').strip()
+
+    with connect_db() as db:
+        sql = """
+            UPDATE instruments
+            SET status=?, status_last_changed = CURRENT_TIMESTAMP
+            WHERE id=?
+        """
+        params = (status, id)
+        db.execute(sql, params)
+
+        flash("Status updated", "success")
+        return redirect("pages/instrument/<int:id>")
     
 #----------------------------------------------------------
 # New Instrument
@@ -88,20 +106,8 @@ def add_instrument():
 
         flash("Instrument added", "success")
         return redirect("/")
-    
-# Show note edit form with existing data --------------------
-@app.get("/instrument/<int:id>/edit")
-def image_editing_form(id):
-    with connect_db() as db:
-        sql = """
-            SELECT id, name, status, status_last_changed
-            FROM instruments
-            WHERE id=?
-        """
-        params = (id,)
-        note = db.execute(sql, params).fetchone()
 
-        return render_template("pages/edit_instrument_form.jinja", note=note)
+
 
 
 #===========================================================

@@ -56,6 +56,14 @@ body > header {
 
     padding: 1rem;
     background-color: var(--secondary-col);
+    a{
+        color: var(--text-col);
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }
 
 
