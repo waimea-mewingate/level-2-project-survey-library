@@ -1,0 +1,21 @@
+{%extends 'pages/_base.jinja'%}
+
+{%block content%}
+
+<section id="instrument">
+
+    <header>
+        {%block image%}
+        {%endblock%}
+        <h2>{{instrument.name}}</h2>
+    </header>
+
+    <div class="status">
+        <h2>{{instrument.status}}</h2>
+        <h4>Last updated:</h4>
+        <p>{{instrument.status_last_changed | local | format}}</p>
+    </div>
+
+</section>
+
+{%endblock%}

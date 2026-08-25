@@ -8,8 +8,10 @@
     --palette-col-2: #e8e8e8;
     --palette-col-3: #C8C8C8;
     --palette-col-4: #F7D04F;
+    --palette-col-5: #1D1E1F;
 
     --text-col:       var(--palette-col-1);
+    --link-col:       var(--palette-col-5);
 
     --back-col:       var(--palette-col-2);
     --back-col-panel: #FFF;
@@ -73,6 +75,15 @@ main > h2 {
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
     align-items: start;
+    
+    a{
+        text-decoration: none;
+        color: var(--text-col);
+        &:hover{
+            text-decoration: underline;
+            color: var(--link-col);
+        }
+    }
 
     .instrument {
         padding: 1rem;
@@ -102,17 +113,22 @@ main > h2 {
     flex-direction: column;
     max-width: 30rem;
     margin: 1rem;
+    padding: 1rem;
+    gap: 2rem;
 
-    div{
-        background-color: var(--palette-col-3);
+    header{
+        font-size: large;
+        background-color: var(--back-col-panel);
         border: 3px solid var(--palette-col-1);
         border-radius: 1rem;
         padding: 1rem;
-        box-shadow: 0 0.5rem 1rem #0004;
     }
     
-    .name{
-        font-size: large;
+    .status{
+        background-color: var(--back-col-panel);
+        border: 3px solid var(--border-col);
+        border-radius: 1rem;
+        padding: 1rem;
     }
 
 }

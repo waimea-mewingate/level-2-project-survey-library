@@ -13,15 +13,19 @@
 
             <div class="instrument">
 
+           
                 <header>
-                    <h3>{{ instruments.name }}</h3>
+                    <a href="/instrument/{{instrument.id}}"> 
+                    <h3>{{ instrument.name }}</h3>
+                    </a>
                 </header>
 
+                <a href="/instrument/{{instrument.id}}">
                 <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
+                </a>
 
-                <footer>
-                    Status last changed: {{ instruments.status_last_changed | local | format }}
-                </footer>
+                <h4>Status last changed: {{ instruments.status_last_changed | local | format }} </h4>    
+            
 
             </div>
 

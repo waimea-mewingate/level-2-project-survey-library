@@ -1,5 +1,8 @@
 {# request image... #}
 
-<h1>{{instrument.name}}</h1>
+
+{%block image%}
 
 <img src="//{{ instrument.id }}/image" alt="{{ instrument.name }} image">   
+
+{%endblock%}

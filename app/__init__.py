@@ -43,12 +43,65 @@ def show_instruments():
 @app.get('/instrument/<int:id>')
 def get_instrument(id):
     with connect_db() as db:
-        sql = "SELECT name FROM instruments WHERE id=?"
+        sql = """
+        SELECT name, status, status_last_changed
+        FROM instruments 
+        WHERE id=?
+        """
         params = (id,)
         instrument = db.execute(sql, params).fetchone()
 
-        return render_template("pages/instrument.jinja", instrument=instrument)
+        return render_template("pages/instrument_single.jinja", instrument=instrument)
     
+#----------------------------------------------------------
+# New Instrument
+#-----------------------------------------------------------
+@app.get('/instrument/new')
+def show_instrument_form():
+    return render_template("pages/instrument_form.jinja")
+
+# Process new instrument ------------------------------------------
+
+@app.post("/instrument")
+def add_instrument():
+    name = request.form.get('name', '').strip()
+    status = request.form.get('status', '').strip()
+    
+    if not name:
+        flash("Name is required", "error")
+        return redirect("/instrument/new")
+    
+    if not status:
+        flash("Status is required", "error")
+        return redirect("/instrument/new")
+
+
+    name = html.escape(name)
+
+    with connect_db() as db:
+        sql = """
+            INSERT INTO instruments (name, status)
+            VALUES (?, ?)
+        """
+        params = (name, status)
+        db.execute(sql, params)
+
+        flash("Instrument added", "success")
+        return redirect("/")
+    
+# Show note edit form with existing data --------------------
+@app.get("/instrument/<int:id>/edit")
+def image_editing_form(id):
+    with connect_db() as db:
+        sql = """
+            SELECT id, name, status, status_last_changed
+            FROM instruments
+            WHERE id=?
+        """
+        params = (id,)
+        note = db.execute(sql, params).fetchone()
+
+        return render_template("pages/edit_instrument_form.jinja", note=note)
 
 
 #===========================================================
