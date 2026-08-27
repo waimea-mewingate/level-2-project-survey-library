@@ -62,7 +62,9 @@ class BookingTable:
     SCHEMA    = """
         CREATE TABLE bookings (
             id          INTEGER PRIMARY KEY AUTOINCREMENT,
-            date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            created     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            date_booked DATE NOT NULL,
+            days_booked INTEGER NOT NULL,
             flexible    BOOLEAN DEFAULT 1,
             in_out      BOOLEAN DEFAULT 1,
             notes       TEXT,
@@ -76,13 +78,13 @@ class BookingTable:
     
     """
     SEED_DATA = """
-        INSERT INTO bookings (instrument_booked, surveyor_id)
+        INSERT INTO bookings (date_booked, days_booked, instrument_booked, surveyor_id)
         VALUES 
-            ("1", "2"),
-            ("1", "5"),
-            ("3", "1"),
-            ("3", "2"),
-            ("2", "3")
+            ("2026-08-22", 3, "1", "2"),
+            ("2026-08-27", 1, "1", "5"),
+            ("2026-08-27", 5, "3", "1"),
+            ("2026-08-24", 1, "3", "2"),
+            ("2026-08-27", 7, "2", "3")
     """
 #----------------------------------------------------------------------------
 # Table registry

@@ -53,6 +53,20 @@ def get_instrument(id):
 
         return render_template("pages/instrument_single.jinja", instrument=instrument)
     
+# Edit ---------------------------
+@app.get("/instrument/<int:id>/edit")
+def instrument_editing_form(id):
+    with connect_db() as db:
+        sql = """
+            SELECT id, name, status, status_last_changed
+            FROM instruments
+            WHERE id=?
+        """
+        params = (id,)
+        instrument = db.execute(sql, params).fetchone()
+
+        return render_template("pages/edit_instrument_form.jinja", instrument=instrument)
+    
 # Process ------------------------
 @app.post("/instrument/<int:id>")
 def update_instrument(id): 
@@ -69,7 +83,7 @@ def update_instrument(id):
         db.execute(sql, params)
 
         flash("Status updated", "success")
-        return redirect("pages/instrument/<int:id>")
+        return redirect("/")
     
 #----------------------------------------------------------
 # New Instrument
@@ -107,7 +121,21 @@ def add_instrument():
         flash("Instrument added", "success")
         return redirect("/")
 
+#===========================================================
+# BOOKINGS
+#===========================================================
+@app.get("/bookings")
+def show_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT id, created, date_booked, days_booked, flexible, in_out, notes, instrument_booked, surveyor_id
+            FROM bookings
+            ORDER BY date_booked DESC, created DESC
+        """
+        params = ()
+        bookings = db.execute(sql, params).fetchall()
 
+        return render_template("pages/booking_list.jinja", bookings=bookings)
 
 
 #===========================================================

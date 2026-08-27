@@ -7,20 +7,15 @@
 
 {% block content %}
 
-    <section id="instruments">
-        <div class="bookings">
-            <h2>Bookings</h2>
-        </div>
+    <section id="bookings">
 
-        {% for instrument in instruments %}
+        {% for booking in bookings %}
 
-            <div class="instrument">
+            <div class="booking">
 
            
                 <header>
-                    <a href="/instrument/{{instrument.id}}"> 
-                    <h3>{{ instrument.name }}</h3>
-                    </a>
+                    <h3> {{ booking.instrument_booked }} </h3>
                 </header>
 
                 <a href="/instrument/{{instrument.id}}">
