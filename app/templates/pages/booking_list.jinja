@@ -4,32 +4,28 @@
 
 {% extends 'pages/_base.jinja' %}
 
-
 {% block content %}
 
-    <section id="bookings">
+{# Make this an a tag later for filters #}
+<div class="filter"><h4>Filter...</h4></div>
 
-        {% for booking in bookings %}
+{# This needs to have some numbers changed to words#}
+<section id="bookings">
 
-            <div class="booking">
+    {% for booking in bookings %}
 
-           
-                <header>
-                    <h3> {{ booking.instrument_booked }} </h3>
-                </header>
+        <div class="booking">
 
-                <a href="/instrument/{{instrument.id}}">
-                <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
-                </a>
+            <h2>Instrument (id {{booking.instrument_booked}})</h2>
 
-                <h4>Status: {{ instrument.status }} </h4>    
-            
+            <h3>{{ booking.days_booked }} day(s) from {{ booking.date_booked | format_date }} </h3>
+            <p>Created {{ booking.created | format_human }} by {{ booking.surveyor_id }}</p>
 
-            </div>
+        </div>
 
-        {% endfor %}
+    {% endfor %}
 
-    </section>
+</section>
 
 {% endblock %}
 

@@ -36,7 +36,7 @@ def show_instruments():
 
         flash("Test message")
 
-        return render_template("pages/instruments.jinja", instruments=instruments)
+        return render_template("pages/home.jinja", instruments=instruments)
 #-----------------------------------------------------------
 # Single instrument page with status editing
 #-----------------------------------------------------------
@@ -127,6 +127,7 @@ def add_instrument():
 @app.get("/bookings")
 def show_bookings():
     with connect_db() as db:
+        #ADD A JOIN HERE FOR THE FOREIGN KEYS
         sql = """
             SELECT id, created, date_booked, days_booked, flexible, in_out, notes, instrument_booked, surveyor_id
             FROM bookings
@@ -136,6 +137,7 @@ def show_bookings():
         bookings = db.execute(sql, params).fetchall()
 
         return render_template("pages/booking_list.jinja", bookings=bookings)
+
 
 
 #===========================================================
