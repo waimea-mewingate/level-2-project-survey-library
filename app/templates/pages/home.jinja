@@ -20,16 +20,16 @@
 
            
                 <header>
-                    <a href="/instrument/{{instrument.id}}"> 
+                    <a href="/instrument/{{instrument.instrument_id}}"> 
                     <h3>{{ instrument.name }}</h3>
                     </a>
                 </header>
 
-                <a href="/instrument/{{instrument.id}}">
+                <a href="/instrument/{{instrument.instrument_id}}">
                 <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
                 </a>
 
-                <h4>Status: {{ instrument.status }} </h4>    
+                <h4>{{ instrument.status }} </h4>    
             
 
             </div>

@@ -21,7 +21,7 @@ class InstrumentTable:
 
     SCHEMA = """
         CREATE TABLE instruments (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            instrument_id      INTEGER PRIMARY KEY AUTOINCREMENT,
             name   TEXT NOT NULL,
             status    TEXT NOT NULL,
             status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -41,7 +41,7 @@ class SurveyorTable:
     NAME      = "surveyors"
     SCHEMA    = """
         CREATE TABLE surveyors (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            surveyor_id      INTEGER PRIMARY KEY AUTOINCREMENT,
             name    TEXT NOT NULL
     )
     """
@@ -61,7 +61,7 @@ class BookingTable:
     NAME      = "bookings"
     SCHEMA    = """
         CREATE TABLE bookings (
-            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            booking_id          INTEGER PRIMARY KEY AUTOINCREMENT,
             created     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             date_booked DATE NOT NULL,
             days_booked INTEGER NOT NULL,
@@ -70,15 +70,15 @@ class BookingTable:
             notes       TEXT,
             
             instrument_booked   INTEGER NOT NULL,
-            surveyor_id      INTEGER NOT NULL,
+            person_booking      INTEGER NOT NULL,
 
-            FOREIGN KEY (instrument_booked) REFERENCES instruments(id),
-            FOREIGN KEY (surveyor_id)    REFERENCES surveyors(id)
+            FOREIGN KEY (instrument_booked) REFERENCES instruments(instrument_id),
+            FOREIGN KEY (person_booking)    REFERENCES surveyors(surveyor_id)
         )
     
     """
     SEED_DATA = """
-        INSERT INTO bookings (date_booked, days_booked, instrument_booked, surveyor_id)
+        INSERT INTO bookings (date_booked, days_booked, instrument_booked, person_booking)
         VALUES 
             ( "2026-08-22", 3, 1, 2 ),
             ( "2026-08-27", 1, 1, 5 ),

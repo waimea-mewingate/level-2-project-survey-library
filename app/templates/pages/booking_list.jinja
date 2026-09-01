@@ -16,10 +16,10 @@
 
         <div class="booking">
 
-            <h2>Instrument (id {{booking.instrument_booked}})</h2>
+            <h2>Instrument {{ bookings.person_booking }}</h2>
 
             <h3>{{ booking.days_booked }} day(s) from {{ booking.date_booked | format_date }} </h3>
-            <p>Created {{ booking.created | format_human }} by {{ booking.surveyor_id }}</p>
+            <p>Created {{ booking.created | format_human }} by {{ booking.person_booking }}</p>
 
         </div>
 

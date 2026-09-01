@@ -27,9 +27,9 @@ app = Flask(__name__)
 def show_instruments():
     with connect_db() as db:
         sql = """
-            SELECT id, name, status, status_last_changed
+            SELECT instrument_id, name, status, status_last_changed
             FROM instruments
-            ORDER BY id DESC
+            ORDER BY instrument_id DESC
         """
         params = ()
         instruments = db.execute(sql, params).fetchall()
@@ -46,7 +46,7 @@ def get_instrument(id):
         sql = """
         SELECT name, status, status_last_changed
         FROM instruments 
-        WHERE id=?
+        WHERE instrument_id=?
         """
         params = (id,)
         instrument = db.execute(sql, params).fetchone()
@@ -58,9 +58,9 @@ def get_instrument(id):
 def instrument_editing_form(id):
     with connect_db() as db:
         sql = """
-            SELECT id, name, status, status_last_changed
+            SELECT instrument_id, name, status, status_last_changed
             FROM instruments
-            WHERE id=?
+            WHERE instrument_id=?
         """
         params = (id,)
         instrument = db.execute(sql, params).fetchone()
@@ -77,7 +77,7 @@ def update_instrument(id):
         sql = """
             UPDATE instruments
             SET status=?, status_last_changed = CURRENT_TIMESTAMP
-            WHERE id=?
+            WHERE instrument_id=?
         """
         params = (status, id)
         db.execute(sql, params)
@@ -129,8 +129,15 @@ def show_bookings():
     with connect_db() as db:
         #ADD A JOIN HERE FOR THE FOREIGN KEYS
         sql = """
-            SELECT id, created, date_booked, days_booked, flexible, in_out, notes, instrument_booked, surveyor_id
+            SELECT bookings.booking_id, bookings.created, bookings.date_booked,
+            bookings.days_booked, bookings.flexible, bookings.in_out, bookings.notes,
+            bookings.instrument_booked, bookings.person_booking, 
+            surveyors.name AS surveyor,
+            instruments.name AS instrument
+            
             FROM bookings
+            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
+            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
             ORDER BY date_booked DESC, created DESC
         """
         params = ()
