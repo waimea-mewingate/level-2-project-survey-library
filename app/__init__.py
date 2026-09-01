@@ -29,7 +29,7 @@ def show_instruments():
         sql = """
             SELECT instrument_id, name, status, status_last_changed
             FROM instruments
-            ORDER BY instrument_id DESC
+            ORDER BY instrument_id
         """
         params = ()
         instruments = db.execute(sql, params).fetchall()
@@ -127,25 +127,78 @@ def add_instrument():
 @app.get("/bookings")
 def show_bookings():
     with connect_db() as db:
-        #ADD A JOIN HERE FOR THE FOREIGN KEYS
         sql = """
-            SELECT bookings.booking_id, bookings.created, bookings.date_booked,
-            bookings.days_booked, bookings.flexible, bookings.in_out, bookings.notes,
-            bookings.instrument_booked, bookings.person_booking, 
-            surveyors.name AS surveyor,
-            instruments.name AS instrument
+            SELECT 
+                bookings.booking_id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
             
             FROM bookings
             JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
             JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            
             ORDER BY date_booked DESC, created DESC
         """
         params = ()
         bookings = db.execute(sql, params).fetchall()
 
         return render_template("pages/booking_list.jinja", bookings=bookings)
+#-----------------------------------------------------------------------    
+# New Booking
+#----------------------------------------------------------------------- 
+@app.get('/booking/new')
+def show_booking_form():
+    return render_template("pages/booking_form.jinja")
 
+# Process -----------------------------
+@app.post("/booking")
+def add_booking():
+    date_booked = request.form.get('startdate' '').strip
+    booking_end = request.form.get('enddate' '').strip
+    
+    flexible = bool(request.form.get('flex'))
+    
+    notes = request.form.get('notes' '').strip
+        
+    instrument_booked = request.form.get('instrument', '').strip()
+    person_booking = request.form.get('surveyor', '').strip()
 
+    if not instrument_booked:
+        flash("Instrument is required", "error")
+        return redirect("/booking/new")
+    
+    if not person_booking:
+        flash("Surveyor is required", "error")
+        return redirect("/booking/new")
+    
+    if not date_booked:
+        flash("Start date is required", "error")
+        return redirect("/booking/new")
+    
+    if not booking_end:
+        flash("End date is required", "error")
+        return redirect("/booking/new")
+
+    notes = html.escape(notes)
+
+    with connect_db() as db:
+        sql = """
+            INSERT INTO bookings (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """
+        params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
+        db.execute(sql, params)
+
+        flash("Booking added", "success")
+        return redirect("/")
 
 #===========================================================
 # Configure the app

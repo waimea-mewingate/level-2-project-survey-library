@@ -159,7 +159,7 @@ main > h2 {
     padding: 1rem;
     gap: 2rem;
 
-    .booking{
+    div{
         background-color: var(--back-col-panel);
         border: 3px solid var(--border-col);
         border-radius: 1rem;

@@ -1,0 +1,65 @@
+{#=====================================================
+    Form for new booking
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+<article>
+
+    <form method="post" action="/booking">
+        <h3>New Booking</h3>
+
+        <label>
+            Instrument To Book
+            <select name="instrument" required>
+                <option>SX10</option>
+                <option>DiNi</option>
+                <option>12i</option>
+            </select>
+        </label>
+
+        <label>
+            Person Wanting Instrument
+            <select name="surveyor" required>
+                <option>Ben</option>
+                <option>Fred</option>
+                <option>Grant</option>
+                <option>Kirsten</option>
+                <option>Matt</option>
+                <option>Mike</option>
+                <option>Nick</option>    
+            </select>
+        </label>
+
+        <label>
+            Booking Start Date
+            <input name="startdate" type="date" placeholder="YYYY-MM-DD" required>     
+        </label>
+
+        <label>
+            Booking End Date
+            <input name="enddate" type="date" placeholder="YYYY-MM-DD" required>
+        </label>
+        
+        <label>
+            <input name="flexible" type="checkbox">
+            Flexible?
+        </label>
+
+        <label>
+            Notes
+            <textarea name="notes" placeholder="..." ></textarea>
+        </label>
+
+        <button>Book</button>
+
+    </form>
+
+
+</article>
+
+{% endblock %}
+
