@@ -83,7 +83,7 @@ def update_instrument(id):
         db.execute(sql, params)
 
         flash("Status updated", "success")
-        return redirect("/")
+        return redirect(f"/instrument/{id}")
     
 #----------------------------------------------------------
 # New Instrument
@@ -161,17 +161,17 @@ def show_booking_form():
 # Process -----------------------------
 @app.post("/booking")
 def add_booking():
-    date_booked = request.form.get('startdate' '').strip
-    booking_end = request.form.get('enddate' '').strip
+    date_booked = request.form.get('startdate' '').strip()
+    booking_end = request.form.get('enddate' '').strip()
     
     flexible = bool(request.form.get('flex'))
     
-    notes = request.form.get('notes' '').strip
+    booking_notes = request.form.get('notes' '').strip()
         
-    instrument_booked = request.form.get('instrument', '').strip()
+    instrument_name = request.form.get('instrument', '').strip()
     person_booking = request.form.get('surveyor', '').strip()
 
-    if not instrument_booked:
+    if not instrument_name:
         flash("Instrument is required", "error")
         return redirect("/booking/new")
     
@@ -186,19 +186,36 @@ def add_booking():
     if not booking_end:
         flash("End date is required", "error")
         return redirect("/booking/new")
-
-    notes = html.escape(notes)
+    
+    notes = html.escape(booking_notes) if not None else null    
+    
+    # THIS INSERTS A NAME INSTEAD OF AN INSTRUMENT ID - HOW TO MAKE READABLE FOR FORM BUT INPUT ID??
 
     with connect_db() as db:
         sql = """
             INSERT INTO bookings (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
             VALUES (?, ?, ?, ?, ?, ?)
         """
-        params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
+        params = (date_booked, booking_end, flexible, notes, instrument_name, person_booking)
         db.execute(sql, params)
 
         flash("Booking added", "success")
         return redirect("/")
+    
+# Delete booking ---------------------------------------------
+@app.get("/booking/<int:id>/delete")
+def delete_booking(id):
+    with connect_db() as db:
+        sql = """
+            DELETE FROM bookings
+            WHERE id=?
+        """
+        params = (id,)
+        db.execute(sql, params)
+
+        flash("Booking deleted", "success")
+        return redirect("/")   
+
 
 #===========================================================
 # Configure the app
