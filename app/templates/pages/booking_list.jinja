@@ -9,18 +9,24 @@
 {# Make this an a tag later for filters #}
 <div class="filter"><h4>Filter...</h4></div>
 
-<section id="bookings">
+<section class="bookings">
+
+{# show if date is in the future???? #}
 
     {% for booking in bookings %}
 
-        <div class="booking">
+        <article class="booking">
 
-            <h2>{{ booking.instrument_name }}</h2>
+            <h2>{{ booking.instrument_name }} {{ "⿾" if booking.flexible }} </h2>
 
             <h3>Booked from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
             <p>Created {{ booking.created | format_human }} by {{ booking.surveyor_name }}</p>
 
-        </div>
+        </article>
+
+    {% else %}
+
+        <p>No Bookings!</p>
 
     {% endfor %}
 

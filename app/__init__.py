@@ -187,7 +187,8 @@ def add_booking():
         flash("End date is required", "error")
         return redirect("/booking/new")
     
-    notes = html.escape(booking_notes) if not None else null    
+    notes = html.escape(booking_notes) if not None else null   
+    
     
     # THIS INSERTS A NAME INSTEAD OF AN INSTRUMENT ID - HOW TO MAKE READABLE FOR FORM BUT INPUT ID??
 
@@ -201,21 +202,65 @@ def add_booking():
 
         flash("Booking added", "success")
         return redirect("/")
-    
-# Delete booking ---------------------------------------------
-@app.get("/booking/<int:id>/delete")
-def delete_booking(id):
+
+#-----------------------------------------------------------------------    
+# Update booking
+#----------------------------------------------------------------------- 
+@app.get("/booking/<int:id>/edit")
+def booking_edit(id):
     with connect_db() as db:
         sql = """
-            DELETE FROM bookings
-            WHERE id=?
+            SELECT 
+                bookings.booking_id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            
+            FROM bookings
+            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
+            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            
+            ORDER BY date_booked DESC, created DESC
         """
         params = (id,)
+        booking = db.execute(sql, params).fetchone()
+
+        return render_template("pages/booking_edit.jinja", booking=booking)
+    
+
+# Process -----------------------------
+@app.post("/booking/<int:id>")
+def update_booking(id):
+    date_booked = request.form.get('startdate' '').strip()
+    booking_end = request.form.get('enddate' '').strip()
+    
+    flexible = bool(request.form.get('flex'))
+    
+    booking_notes = request.form.get('notes' '').strip()
+        
+    instrument_booked = request.form.get('instrument', '').strip()
+    person_booking = request.form.get('surveyor', '').strip()
+    
+    notes = html.escape(booking_notes) if not None else null  
+
+    with connect_db() as db:
+        sql = """
+            UPDATE bookings
+            SET date_booked=?, booking_end=?, flexible=?, notes=?, instrument_booked=?, person_booking=?
+            WHERE id=?
+        """
+        params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
         db.execute(sql, params)
 
-        flash("Booking deleted", "success")
-        return redirect("/")   
-
+        flash("Booking updated", "success")
+        return redirect("/bookings")
 
 #===========================================================
 # Configure the app
