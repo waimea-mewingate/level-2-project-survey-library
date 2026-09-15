@@ -6,13 +6,21 @@
 
 {% block content %}
 
-{# Make this an a tag later for filters #}
-<div class="filter"><h4>Filter...</h4></div>
+<div class="filter">
+    <a href="/bookings">
+    <h3>History</h3>
+    </a>
+    <h4>Filter By...</h4>
+    <a href="/bookings/history/flex">Flexible</a>
+    <a href="/bookings/history/fixed">Fixed</a>
+    <a href="/bookings/history/12i">12i Only</a>
+    <a href="/bookings/history/sx10">SX10 Only</a>
+    <a href="/bookings/history/dini">DiNi Only</a>
+    <a href="/bookings/history">Clear</a>
+</div>
 
 <section class="bookings">
     <h2>Past Bookings</h2>
-
-{# show if date is in the past???? #}
 
     {% for booking in bookings %}
 
