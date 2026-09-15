@@ -140,7 +140,6 @@ def show_bookings():
                 bookings.person_booking,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
-            
             FROM bookings
             JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
             JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
@@ -261,6 +260,37 @@ def update_booking(id):
 
         flash("Booking updated", "success")
         return redirect("/bookings")
+    
+#-----------------------------------------------------------------------    
+# Booking History
+#----------------------------------------------------------------------- 
+@app.get("/bookings/history")
+def show_history():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.booking_id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            
+            FROM bookings
+            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
+            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            
+            ORDER BY date_booked DESC, created DESC
+        """
+        params = ()
+        bookings = db.execute(sql, params).fetchall()
+
+        return render_template("pages/booking_history.jinja", bookings=bookings)
 
 #===========================================================
 # Configure the app

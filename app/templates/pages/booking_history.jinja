@@ -1,5 +1,5 @@
 {#=====================================================
-  Booking page
+  Booking history
 =====================================================#}
 
 {% extends 'pages/_base.jinja' %}
@@ -9,10 +9,10 @@
 {# Make this an a tag later for filters #}
 <div class="filter"><h4>Filter...</h4></div>
 
-<div class="bookings">
-    <h1>Bookings</h1>
+<section class="bookings">
+    <h2>Past Bookings</h2>
 
-{# show if date is in the future???? #}
+{# show if date is in the past???? #}
 
     {% for booking in bookings %}
 
@@ -31,7 +31,7 @@
 
     {% endfor %}
 
-</div>
+</section>
 
 {% endblock %}
 

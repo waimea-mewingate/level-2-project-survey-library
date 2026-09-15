@@ -21,7 +21,22 @@
     --secondary-col:  var(--palette-col-4);
     --accent-col:     var(--palette-col-1);
 
+    --border:         3px solid var(--border-col);
+    --border-small:   2px solid var(--border-col);
+    --border-dark:    3px solid var(--palette-col-1);
+    --border-sml-drk: 2px solid var(--palette-col-1);
 
+    --b-radius:       1rem;
+    --b-radius-sml:   0.6rem;
+
+    --padding:        1rem;
+    --padding-sml:    0.6rem;
+    --gap:            2rem;
+    --margin:         1rem;
+    --max-width:      30rem;
+
+    --box-shadow:     0 0.5rem 1rem #0004;
+    --alignment:      center;
 }
 
 
@@ -43,7 +58,7 @@ body {
 main {
     max-width: 60rem;
     margin-inline: auto;
-    padding: 1rem;
+    padding: var(--padding);
 }
 
 
@@ -51,10 +66,9 @@ main {
 
 body > header {
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    align-items: var(--alignment);
 
-    padding: 1rem;
+    padding: var(--padding);
     background-color: var(--secondary-col);
     a{
         color: var(--text-col);
@@ -80,9 +94,9 @@ main > h2 {
 
 #instruments {
     display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-    align-items: center;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(40rem, 100%), 1fr));
+    align-items: var(--alignment);
     
     a{
         text-decoration: none;
@@ -94,10 +108,11 @@ main > h2 {
     }
 
     .instrument {
-        padding: 1rem;
-        box-shadow: 0 0.5rem 1rem #0004;
-        border: 2px solid var(--border-col);
+        padding: var(--padding);
+        box-shadow: var(--box-shadow);
+        border: var(--border);
         background-color: var(--back-col-panel);
+        border-radius: var(--b-radius-sml);
 
         header {
             display: flex;
@@ -113,10 +128,11 @@ main > h2 {
     }
 
     .bookings{
-        padding: 1rem;
-        box-shadow: 0 0.5rem 1rem #0004;
-        border: 2px solid var(--border-col);
+        padding: var(--padding);
+        box-shadow: var(--box-shadow);
+        border: var(--border);
         background-color: var(--back-col-panel);
+        border-radius: var(--b-radius-sml);
     }
 }
 
@@ -124,45 +140,46 @@ main > h2 {
 
 #instrument{
     display: flex;
-    align-items: center;
+    align-items: var(--alignment);
     flex-direction: column;
-    max-width: 30rem;
-    margin: 1rem;
-    padding: 1rem;
-    gap: 2rem;
+    max-width: var(--max-width);
+    margin: var(--margin);
+    padding: var(--padding);
+    gap: var(--gap);
 
     header{
         font-size: large;
         background-color: var(--back-col-panel);
-        border: 3px solid var(--palette-col-1);
-        border-radius: 1rem;
-        padding: 1rem;
+        border: var(--border-dark);
+        border-radius: var(--b-radius);
+        padding: var(--padding);
     }
     
     .status{
         background-color: var(--back-col-panel);
-        border: 3px solid var(--border-col);
-        border-radius: 1rem;
-        padding: 1rem;
+        border: var(--border);
+        border-radius: var(--b-radius);
+        padding: var(--padding);
     }
 
 }
 
 /* Bookings --------------------------------------------------*/
 
-#bookings{
+.bookings{
     display: flex;
-    align-items: center;
     flex-direction: column;
-    max-width: 40rem;
-    margin: 1rem;
-    padding: 1rem;
-    gap: 2rem;
+    max-width: var(--max-width);
+    align-items: var(--alignment);
+    margin-inline: auto;
 
-    article{
-        background-color: var(--back-col-panel);
-        border: 3px solid var(--border-col);
-        border-radius: 1rem;
-        padding: 1rem;
-    }
+}
+
+.booking{
+    align-items: var(--alignment);
+    background-color: var(--back-col-panel);
+    border: var(--border);
+    border-radius: var(--b-radius);
+    padding: var(--padding);
+    margin: var(--margin);
 }
