@@ -10,17 +10,17 @@
         <h2>{{instrument.name}}</h2>
     </header>
 
-    <div class="bookings">
-        <a href="/bookings">All Bookings</a>
-        <a href="/bookings/history">History</a>
-    </div>
-
-    <div class="status">
+    <article class="status">
         <h2>{{instrument.status}}</h2>
         <h4>Last updated:</h4>
         <p>{{ instrument.status_last_changed | format_human }}</p>
         
         <a href="/instrument/{{instrument.instrument_id}}/edit">Update</a>
+    </article>
+
+    <div class="bookings">
+        <a href="/bookings">All Bookings</a>
+        <a href="/bookings/history">History</a>
     </div>
 
 </section>

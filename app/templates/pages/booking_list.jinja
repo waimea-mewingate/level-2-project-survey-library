@@ -7,16 +7,18 @@
 {% block content %}
 
 <div class="filter">
-    <a href="/bookings/history">
-    <h3>History</h3>
-    </a>
+
     <h4>Filter By...</h4>
-    <a href="/bookings/flex">Flexible</a>
-    <a href="/bookings/fixed">Fixed</a>
-    <a href="/bookings/12i">12i Only</a>
-    <a href="/bookings/sx10">SX10 Only</a>
-    <a href="/bookings/dini">DiNi Only</a>
+    <a href="/bookings/flex">Flexible |</a>
+    <a href="/bookings/fixed">Fixed |</a>
+    <a href="/bookings/12i">12i Only |</a>
+    <a href="/bookings/sx10">SX10 Only |</a>
+    <a href="/bookings/dini">DiNi Only |</a>
     <a href="/bookings">Clear</a>
+    
+    <a href="/bookings/history">
+    <h4>History</h4>
+    </a>
 </div>
 
 <div class="bookings">
@@ -31,6 +33,8 @@
 
             <h3>Booked from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
             <p>Created {{ booking.created | format_human }} by {{ booking.surveyor_name }}</p>
+
+            <a href="/booking/{{booking.booking_id}}/edit">Edit</a>
 
         </article>
 

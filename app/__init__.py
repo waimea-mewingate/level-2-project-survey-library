@@ -34,8 +34,6 @@ def show_instruments():
         params = ()
         instruments = db.execute(sql, params).fetchall()
 
-        flash("Test message")
-
         return render_template("pages/home.jinja", instruments=instruments)
 #-----------------------------------------------------------
 # Single instrument page with status editing
@@ -319,7 +317,7 @@ def show_history():
             
             WHERE bookings.date_booked < CURRENT_DATE
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY date_booked DESC, created ASC
         """
         params = ()
         bookings = db.execute(sql, params).fetchall()
@@ -351,7 +349,7 @@ def show_historical_flex_bookings():
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=1
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY date_booked DESC, created ASC
         """
         flex = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", flex=flex, title="Filtered: Flexible")
@@ -378,7 +376,7 @@ def show_historical_fixed_bookings():
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=0
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY date_booked DESC, created ASC
         """
         fixed = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", fixed=fixed, title="Filtered: Fixed")
@@ -406,7 +404,7 @@ def show_historical_12i_bookings():
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=1
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY date_booked DESC, created ASC
         """
         twelvei = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", twelvei=twelvei, title="Filtered: 12i")
@@ -433,7 +431,7 @@ def show_historical_sx10_bookings():
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=2
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY date_booked DESC, created ASC
         """
         sx10 = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", sx10=sx10, title="Filtered: SX10")
@@ -458,9 +456,9 @@ def show_historical_dini_bookings():
             JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
             JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=3
+            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked = '3'
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY date_booked DESC, created ASC
         """
         dini = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", dini=dini, title="Filtered: DiNi")
@@ -538,9 +536,10 @@ def booking_edit(id):
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             
-            FROM bookings
+            FROM bookings            
             JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
             JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            WHERE booking_id=?
             
             ORDER BY date_booked DESC, created DESC
         """
@@ -569,9 +568,9 @@ def update_booking(id):
         sql = """
             UPDATE bookings
             SET date_booked=?, booking_end=?, flexible=?, notes=?, instrument_booked=?, person_booking=?
-            WHERE id=?
+            WHERE booking_id=?
         """
-        params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
+        params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking, id)
         db.execute(sql, params)
 
         flash("Booking updated", "success")
