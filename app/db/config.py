@@ -21,7 +21,7 @@ class InstrumentTable:
 
     SCHEMA = """
         CREATE TABLE instruments (
-            instrument_id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
             name   TEXT NOT NULL,
             status    TEXT NOT NULL,
             status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -41,7 +41,7 @@ class SurveyorTable:
     NAME      = "surveyors"
     SCHEMA    = """
         CREATE TABLE surveyors (
-            surveyor_id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
             name    TEXT NOT NULL
     )
     """
@@ -61,7 +61,7 @@ class BookingTable:
     NAME      = "bookings"
     SCHEMA    = """
         CREATE TABLE bookings (
-            booking_id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
             created     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             date_booked DATE NOT NULL,
             booking_end DATE NOT NULL,
@@ -72,8 +72,8 @@ class BookingTable:
             instrument_booked   INTEGER NOT NULL,
             person_booking      INTEGER NOT NULL,
 
-            FOREIGN KEY (instrument_booked) REFERENCES instruments(instrument_id),
-            FOREIGN KEY (person_booking)    REFERENCES surveyors(surveyor_id)
+            FOREIGN KEY (instrument_booked) REFERENCES instruments(id),
+            FOREIGN KEY (person_booking)    REFERENCES surveyors(id)
         )
     
     """

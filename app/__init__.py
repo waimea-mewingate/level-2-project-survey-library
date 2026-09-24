@@ -27,9 +27,9 @@ app = Flask(__name__)
 def show_instruments():
     with connect_db() as db:
         sql = """
-            SELECT instrument_id, name, status, status_last_changed
+            SELECT id, name, status, status_last_changed
             FROM instruments
-            ORDER BY instrument_id
+            ORDER BY id
         """
         params = ()
         instruments = db.execute(sql, params).fetchall()
@@ -42,9 +42,9 @@ def show_instruments():
 def get_instrument(id):
     with connect_db() as db:
         sql = """
-        SELECT name, status, status_last_changed
+        SELECT id, name, status, status_last_changed
         FROM instruments 
-        WHERE instrument_id=?
+        WHERE id=?
         """
         params = (id,)
         instrument = db.execute(sql, params).fetchone()
@@ -56,9 +56,9 @@ def get_instrument(id):
 def instrument_editing_form(id):
     with connect_db() as db:
         sql = """
-            SELECT instrument_id, name, status, status_last_changed
+            SELECT id, name, status, status_last_changed
             FROM instruments
-            WHERE instrument_id=?
+            WHERE id=?
         """
         params = (id,)
         instrument = db.execute(sql, params).fetchone()
@@ -75,7 +75,7 @@ def update_instrument(id):
         sql = """
             UPDATE instruments
             SET status=?, status_last_changed = CURRENT_TIMESTAMP
-            WHERE instrument_id=?
+            WHERE id=?
         """
         params = (status, id)
         db.execute(sql, params)
@@ -127,7 +127,7 @@ def show_bookings():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -139,8 +139,8 @@ def show_bookings():
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked > CURRENT_DATE
             
@@ -159,7 +159,7 @@ def show_flex_bookings():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -171,8 +171,8 @@ def show_flex_bookings():
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked > CURRENT_DATE AND bookings.flexible=1
             
@@ -186,7 +186,7 @@ def show_fixed_bookings():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -198,8 +198,8 @@ def show_fixed_bookings():
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked > CURRENT_DATE AND bookings.flexible=0
             
@@ -214,7 +214,7 @@ def show_12i_bookings():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -226,8 +226,8 @@ def show_12i_bookings():
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked > CURRENT_DATE AND bookings.instrument_booked=1
             
@@ -241,7 +241,7 @@ def show_sx10_bookings():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -253,8 +253,8 @@ def show_sx10_bookings():
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked > CURRENT_DATE AND bookings.instrument_booked=2
             
@@ -268,7 +268,7 @@ def show_dini_bookings():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -280,8 +280,8 @@ def show_dini_bookings():
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked > CURRENT_DATE AND bookings.instrument_booked=3
             
@@ -299,7 +299,7 @@ def show_history():
     with connect_db() as db:
         sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -312,8 +312,8 @@ def show_history():
                 instruments.name AS instrument_name
             
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE
             
@@ -331,25 +331,12 @@ def show_history():
 def show_historical_flex_bookings():
     with connect_db() as db:
         sql = """
-            SELECT 
-                bookings.booking_id, 
-                bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
-                bookings.flexible, 
-                bookings.in_out, 
-                bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
-                surveyors.name AS surveyor_name,
-                instruments.name AS instrument_name
+            SELECT *
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=1
-            
-            ORDER BY date_booked DESC, created ASC
+            WHERE bookings.flexible=1 AND bookings.date_booked < CURRENT_DATE
         """
         flex = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", flex=flex, title="Filtered: Flexible")
@@ -358,25 +345,12 @@ def show_historical_flex_bookings():
 def show_historical_fixed_bookings():
     with connect_db() as db:
         sql = """
-            SELECT 
-                bookings.booking_id, 
-                bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
-                bookings.flexible, 
-                bookings.in_out, 
-                bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
-                surveyors.name AS surveyor_name,
-                instruments.name AS instrument_name
+            SELECT *
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=0
-            
-            ORDER BY date_booked DESC, created ASC
         """
         fixed = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", fixed=fixed, title="Filtered: Fixed")
@@ -386,25 +360,12 @@ def show_historical_fixed_bookings():
 def show_historical_12i_bookings():
     with connect_db() as db:
         sql = """
-            SELECT 
-                bookings.booking_id, 
-                bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
-                bookings.flexible, 
-                bookings.in_out, 
-                bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
-                surveyors.name AS surveyor_name,
-                instruments.name AS instrument_name
+            SELECT *
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=1
-            
-            ORDER BY date_booked DESC, created ASC
         """
         twelvei = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", twelvei=twelvei, title="Filtered: 12i")
@@ -413,25 +374,12 @@ def show_historical_12i_bookings():
 def show_historical_sx10_bookings():
     with connect_db() as db:
         sql = """
-            SELECT 
-                bookings.booking_id, 
-                bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
-                bookings.flexible, 
-                bookings.in_out, 
-                bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
-                surveyors.name AS surveyor_name,
-                instruments.name AS instrument_name
+            SELECT *
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=2
-            
-            ORDER BY date_booked DESC, created ASC
         """
         sx10 = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", sx10=sx10, title="Filtered: SX10")
@@ -440,25 +388,12 @@ def show_historical_sx10_bookings():
 def show_historical_dini_bookings():
     with connect_db() as db:
         sql = """
-            SELECT 
-                bookings.booking_id, 
-                bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
-                bookings.flexible, 
-                bookings.in_out, 
-                bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
-                surveyors.name AS surveyor_name,
-                instruments.name AS instrument_name
+            SELECT *
             FROM bookings
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked = '3'
-            
-            ORDER BY date_booked DESC, created ASC
         """
         dini = db.execute(sql).fetchall()
     return render_template("pages/booking_history.jinja", dini=dini, title="Filtered: DiNi")
@@ -469,7 +404,25 @@ def show_historical_dini_bookings():
 #----------------------------------------------------------------------- 
 @app.get('/booking/new')
 def show_booking_form():
-    return render_template("pages/booking_form.jinja")
+    with connect_db() as db:
+        sql = """
+            SELECT *
+            FROM instruments
+            ORDER BY name ASC
+        """
+        params = ()
+        instruments = db.execute(sql, params).fetchall()   
+        
+    with connect_db() as db:
+        sql = """
+            SELECT *
+            FROM surveyors
+            ORDER BY name ASC
+        """
+        params = ()
+        surveyors = db.execute(sql, params).fetchall()
+    
+    return render_template("pages/booking_form.jinja", instruments=instruments, surveyors=surveyors)
 
 # Process -----------------------------
 @app.post("/booking")
@@ -500,11 +453,9 @@ def add_booking():
         flash("End date is required", "error")
         return redirect("/booking/new")
     
-    notes = html.escape(booking_notes) if not None else null   
+    notes = html.escape(booking_notes) if not None else None
     
     
-    # THIS INSERTS A NAME INSTEAD OF AN INSTRUMENT ID - HOW TO MAKE READABLE FOR FORM BUT INPUT ID??
-
     with connect_db() as db:
         sql = """
             INSERT INTO bookings (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
@@ -523,8 +474,26 @@ def add_booking():
 def booking_edit(id):
     with connect_db() as db:
         sql = """
+            SELECT *
+            FROM instruments
+            ORDER BY name ASC
+        """
+        params = ()
+        instruments = db.execute(sql, params).fetchall() 
+        
+    with connect_db() as db:
+        sql = """
+            SELECT *
+            FROM surveyors
+            ORDER BY name ASC
+        """
+        params = ()
+        surveyors = db.execute(sql, params).fetchall()
+        
+    with connect_db() as db:
+        sql = """
             SELECT 
-                bookings.booking_id, 
+                bookings.id, 
                 bookings.created, 
                 bookings.date_booked,
                 bookings.booking_end, 
@@ -537,16 +506,16 @@ def booking_edit(id):
                 instruments.name AS instrument_name
             
             FROM bookings            
-            JOIN surveyors ON surveyors.surveyor_id = bookings.person_booking
-            JOIN instruments ON instruments.instrument_id = bookings.instrument_booked
-            WHERE booking_id=?
+            JOIN surveyors ON surveyors.id = bookings.person_booking
+            JOIN instruments ON instruments.id = bookings.instrument_booked
+            WHERE bookings.id=?
             
             ORDER BY date_booked DESC, created DESC
         """
         params = (id,)
         booking = db.execute(sql, params).fetchone()
 
-        return render_template("pages/booking_edit.jinja", booking=booking)
+        return render_template("pages/booking_edit.jinja", instruments=instruments, surveyors=surveyors, booking=booking)
     
 
 # Process -----------------------------
@@ -568,7 +537,7 @@ def update_booking(id):
         sql = """
             UPDATE bookings
             SET date_booked=?, booking_end=?, flexible=?, notes=?, instrument_booked=?, person_booking=?
-            WHERE booking_id=?
+            WHERE id=?
         """
         params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking, id)
         db.execute(sql, params)

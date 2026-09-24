@@ -33,7 +33,7 @@
             <h3>Booked from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
             <p>Created {{ booking.created | format_human }} by {{ booking.surveyor_name }}</p>
 
-            <a href="/booking/{{booking.booking_id}}/edit">Edit</a>
+            <a href="/booking/{{booking.id}}/edit">Edit</a>
 
         </article>
 

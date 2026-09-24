@@ -9,28 +9,24 @@
 
 <article>
 
-    <form method="post" action="/booking/{{booking.booking_id}}">
+    <form method="post" action="/booking/{{ booking.id }}">
         <h3>Edit Booking</h3>
 
         <label>
             Instrument To Book
             <select name="instrument" required>
-                <option>SX10</option>
-                <option>DiNi</option>
-                <option>12i</option>
+            {% for instrument in instruments %}
+                <option value="{{ instrument.id }}">{{ instrument.name }}</option>
+            {% endfor %}
             </select>
         </label>
 
         <label>
             Person Wanting Instrument
             <select name="surveyor" required>
-                <option>Ben</option>
-                <option>Fred</option>
-                <option>Grant</option>
-                <option>Kirsten</option>
-                <option>Matt</option>
-                <option>Mike</option>
-                <option>Nick</option>    
+            {% for surveyor in surveyors %}
+                <option value="{{ surveyor.id }}">{{ surveyor.name }}</option>
+            {% endfor %} 
             </select>
         </label>
 
