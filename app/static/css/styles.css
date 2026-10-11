@@ -38,6 +38,8 @@
 
     --box-shadow:     0 0.5rem 1rem #0004;
     --alignment:      center;
+
+    --hover-size:    103%;
 }
 
 
@@ -103,9 +105,8 @@ main > h2 {
         text-decoration: none;
         color: var(--text-col);
         &:hover{
-            text-decoration: underline;
             color: var(--link-col);
-            font-weight: 500;
+            font-size: var(--hover-size);
         }
     }
 
@@ -127,6 +128,7 @@ main > h2 {
     }
 
     .bookings{
+        margin-top: var(--margin);
         padding: var(--padding);
         box-shadow: var(--box-shadow);
         border: var(--border);
@@ -165,6 +167,15 @@ main > h2 {
         border-radius: var(--b-radius);
         padding: var(--padding);
         min-width: 20rem;
+        a{
+            text-decoration: none;
+            color: var(--text-col);
+        
+            &:hover{
+                text-decoration: underline;
+                color: var(--link-col);
+            }
+        }
     }
 
     div{
@@ -182,7 +193,7 @@ main > h2 {
             &:hover{
                 text-decoration: underline;
                 color: var(--link-col);
-                font-weight: 500;
+                font-size: var(--hover-size);
             }
         }
     }
@@ -190,28 +201,55 @@ main > h2 {
 }
 
 /* Bookings --------------------------------------------------*/
+div{
+    margin-top: var(--margin);
+}
 .filter{
     align-items: var(--alignment);
     background-color: var(--back-col-panel);
     border: var(--border);
     border-radius: var(--b-radius);
     padding: var(--padding);
-    margin-inline: 5rem;
-    min-width: 27rem;
+    margin-inline: auto;
+    max-width: var(--max-width);
 
     a{
         text-decoration: none;
         color: var(--text-col);
+        
         &:hover{
             text-decoration: underline;
             color: var(--link-col);
-            font-weight: 500;
         }
+
         h4{
             text-decoration: underline;
             font-weight: 750;
         }
     }
+}
+.back{
+    align-items: var(--alignment);
+    background-color: var(--back-col-panel);
+    border: var(--border);
+    border-radius: var(--b-radius);
+    padding: var(--padding);
+    margin-inline: auto;
+    max-width: var(--max-width);
+    a{
+        text-decoration: none;
+        color: var(--text-col);
+        
+        &:hover{
+            text-decoration: underline;
+            color: var(--link-col);
+            font-size: var(--hover-size);
+        } 
+    }
+}
+
+h1{
+    margin-top: var(--margin);
 }
 
 .bookings{
@@ -221,12 +259,10 @@ main > h2 {
     align-items: var(--alignment);
     margin-inline: auto;
     a{
-        text-decoration: none;
         color: var(--text-col);
         &:hover{
-            text-decoration: underline;
             color: var(--link-col);
-            font-weight: 500;
+            font-size: var(--hover-size);
         }
     }
 }

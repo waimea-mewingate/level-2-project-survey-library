@@ -8,26 +8,23 @@
 {% block content %}
 
     <section id="instruments">
+    <a href="/bookings">
         <div class="bookings">
-            <a href="/bookings">
             <h2>Bookings</h2>
-            </a>
         </div>
+    </a>
 
         {% for instrument in instruments %}
 
+            <a href="/instrument/{{instrument.id}}"> 
             <div class="instrument">
 
            
                 <header>
-                    <a href="/instrument/{{instrument.id}}"> 
                     <h2>{{ instrument.name }}</h2>
-                    </a>
                 </header>
 
-                <a href="/instrument/{{instrument.id}}">
-                    <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
-                </a>
+                <img src="app/static/images/{{instrument.id}}.png" alt="Image of {{instrument.name}}">
 
                 <h4>{{ instrument.status }} </h4>    
             

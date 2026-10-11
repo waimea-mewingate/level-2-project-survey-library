@@ -153,7 +153,7 @@ def show_bookings():
     
 # Filters --------------------------------------
 
-#Flexible
+#Flexibility
 @app.get("/bookings/flex")
 def show_flex_bookings():
     with connect_db() as db:
@@ -178,8 +178,10 @@ def show_flex_bookings():
             
             ORDER BY date_booked DESC, created DESC
         """
-        flex = db.execute(sql).fetchall()
-    return render_template("pages/booking_list.jinja", flex=flex, title="Filtered: Flexible")
+        bookings = db.execute(sql).fetchall()
+        
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: Flexible")
 
 @app.get("/bookings/fixed")
 def show_fixed_bookings():
@@ -205,8 +207,9 @@ def show_fixed_bookings():
             
             ORDER BY date_booked DESC, created DESC
         """
-        fixed = db.execute(sql).fetchall()
-    return render_template("pages/booking_list.jinja", fixed=fixed, title="Filtered: Fixed")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: Fixed")
 
 #Instruments
 @app.get("/bookings/12i")
@@ -233,8 +236,9 @@ def show_12i_bookings():
             
             ORDER BY date_booked DESC, created DESC
         """
-        twelvei = db.execute(sql).fetchall()
-    return render_template("pages/booking_list.jinja", twelvei=twelvei, title="Filtered: 12i")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: 12i")
 
 @app.get("/bookings/sx10")
 def show_sx10_bookings():
@@ -260,8 +264,9 @@ def show_sx10_bookings():
             
             ORDER BY date_booked DESC, created DESC
         """
-        sx10 = db.execute(sql).fetchall()
-    return render_template("pages/booking_list.jinja", sx10=sx10, title="Filtered: SX10")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: SX10")
 
 @app.get("/bookings/dini")
 def show_dini_bookings():
@@ -287,8 +292,9 @@ def show_dini_bookings():
             
             ORDER BY date_booked DESC, created DESC
         """
-        dini = db.execute(sql).fetchall()
-    return render_template("pages/booking_list.jinja", dini=dini, title="Filtered: DiNi")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: DiNi")
 
 
 #-----------------------------------------------------------------------    
@@ -326,77 +332,150 @@ def show_history():
     
 # Filters --------------------------------------
 
-#Flexible
+#Flexibility
 @app.get("/bookings/history/flex")
 def show_historical_flex_bookings():
     with connect_db() as db:
         sql = """
-            SELECT *
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
             FROM bookings
             JOIN surveyors ON surveyors.id = bookings.person_booking
             JOIN instruments ON instruments.id = bookings.instrument_booked
             
-            WHERE bookings.flexible=1 AND bookings.date_booked < CURRENT_DATE
+            WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=1
+            
+            ORDER BY date_booked DESC, created DESC
+
         """
-        flex = db.execute(sql).fetchall()
-    return render_template("pages/booking_history.jinja", flex=flex, title="Filtered: Flexible")
+        bookings = db.execute(sql).fetchall()
+        
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: Flexible")
 
 @app.get("/bookings/history/fixed")
 def show_historical_fixed_bookings():
     with connect_db() as db:
         sql = """
-            SELECT *
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
             FROM bookings
             JOIN surveyors ON surveyors.id = bookings.person_booking
             JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=0
+            
+            ORDER BY date_booked DESC, created DESC
         """
-        fixed = db.execute(sql).fetchall()
-    return render_template("pages/booking_history.jinja", fixed=fixed, title="Filtered: Fixed")
+        bookings = db.execute(sql).fetchall()
+        
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: Fixed")
 
 #Instruments
 @app.get("/bookings/history/12i")
 def show_historical_12i_bookings():
     with connect_db() as db:
         sql = """
-            SELECT *
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
             FROM bookings
             JOIN surveyors ON surveyors.id = bookings.person_booking
             JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=1
+            
+            ORDER BY date_booked DESC, created DESC
         """
-        twelvei = db.execute(sql).fetchall()
-    return render_template("pages/booking_history.jinja", twelvei=twelvei, title="Filtered: 12i")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: 12i")
 
 @app.get("/bookings/history/sx10")
 def show_historical_sx10_bookings():
     with connect_db() as db:
         sql = """
-            SELECT *
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
             FROM bookings
             JOIN surveyors ON surveyors.id = bookings.person_booking
             JOIN instruments ON instruments.id = bookings.instrument_booked
             
             WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=2
+            
+            ORDER BY date_booked DESC, created DESC
         """
-        sx10 = db.execute(sql).fetchall()
-    return render_template("pages/booking_history.jinja", sx10=sx10, title="Filtered: SX10")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: SX10")
 
 @app.get("/bookings/history/dini")
 def show_historical_dini_bookings():
     with connect_db() as db:
         sql = """
-            SELECT *
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.date_booked,
+                bookings.booking_end, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument_booked, 
+                bookings.person_booking,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
             FROM bookings
             JOIN surveyors ON surveyors.id = bookings.person_booking
             JOIN instruments ON instruments.id = bookings.instrument_booked
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked = '3'
+            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=3
+            
+            ORDER BY date_booked DESC, created DESC
         """
-        dini = db.execute(sql).fetchall()
-    return render_template("pages/booking_history.jinja", dini=dini, title="Filtered: DiNi")
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: DiNi")
     
 
 #-----------------------------------------------------------------------    
