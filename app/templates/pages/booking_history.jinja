@@ -15,13 +15,13 @@
     <a href="/bookings/history/dini">DiNi Only |</a>
     <a href="/bookings/history">Clear</a>
 </div>
-<div class="back">
-<a href="/bookings">
-    <h4>Back to Bookings</h4>
+<div class="nav">
+    <a href="/bookings">
+        <h3>Back to Bookings</h3>
     </a>
 </div>
 
-<section class="bookings">
+<article class="bookings">
     <h1>Past Bookings</h1>
 
     {% for booking in bookings %}
@@ -31,7 +31,7 @@
             <h2>{{ booking.instrument_name }} {{ "⿾" if booking.flexible }} </h2>
 
             <h3>Booked from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
-            <p>Requested {{ booking.created | format_human }} by {{ booking.surveyor_name }}</p>
+            <p><span>{{ booking.surveyor_name }}</span> requested {{ booking.created | format_human }}</p>
 
             <a href="/booking/{{booking.id}}/edit">Edit</a>
 
@@ -43,7 +43,7 @@
 
     {% endfor %}
 
-</section>
+</article>
 
 {% endblock %}
 

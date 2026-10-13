@@ -3,25 +3,24 @@
 {%block content%}
 
 <section id="instrument">
+    
+    <h1>{{instrument.name}}</h1>
 
-    <header>
-        {%block image%}
-        {%endblock%}
-        <h2>{{instrument.name}}</h2>
-    </header>
-
-    <article class="status">
-        <h2>{{instrument.status}}</h2>
-        <h4>Last updated:</h4> <span>{{ instrument.status_last_changed | format_human }}</span><br>
+    <article class="body">
         
-        <a href="/instrument/{{instrument.id}}/edit">Update Status</a>
-    </article>
+        <div class="status">
+            <h2>{{instrument.status}}</h2>
+            <h4>Last updated: </h4> <span>{{ instrument.status_last_changed | format_human }}</span><br>
+            
+            <a href="/instrument/{{instrument.id}}/edit">Update Status</a>
+        </div>
 
-    <div class="bookings">
-        <a href="/bookings">All Bookings</a>
-        <a href="/bookings/history">History</a>
-        <a href="/booking/new">New Booking</a>
-    </div>
+        <div class="bookings">
+            <a href="/bookings">All Bookings</a>
+            <a href="/bookings/history">History</a>
+            <a href="/booking/new">New Booking</a>
+        </div>
+    </article>
 
 </section>
 

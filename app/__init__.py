@@ -624,6 +624,21 @@ def update_booking(id):
         flash("Booking updated", "success")
         return redirect("/bookings")
     
+#-----------------------------------------------------------------------    
+#  Delete booking
+#----------------------------------------------------------------------- 
+@app.get("/booking/<int:id>/delete")
+def delete_booking(id):
+    with connect_db() as db:
+        sql = """
+            DELETE FROM bookings
+            WHERE id=?
+        """
+        params = (id,)
+        db.execute(sql, params)
+
+        flash("Deleted", "success")
+        return redirect("/bookings")
 
 #===========================================================
 # Configure the app
