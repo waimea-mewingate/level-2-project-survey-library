@@ -12,8 +12,7 @@
 
     <article class="status">
         <h2>{{instrument.status}}</h2>
-        <h4>Last updated:</h4>
-        <p>{{ instrument.status_last_changed | format_human }}</p>
+        <h4>Last updated:</h4> <span>{{ instrument.status_last_changed | format_human }}</span><br>
         
         <a href="/instrument/{{instrument.id}}/edit">Update Status</a>
     </article>

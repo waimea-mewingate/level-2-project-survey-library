@@ -15,6 +15,7 @@
 
     --back-col:       var(--palette-col-2);
     --back-col-panel: #FFF;
+    --panel-col-2:    #f7eed0;
     --back-col-2:     #f0e9d648;
 
     --border-col:     var(--palette-col-3);
@@ -24,6 +25,7 @@
 
     --border:         3px solid var(--border-col);
     --border-small:   2px solid var(--border-col);
+    --border-mid:     3px solid #6e6e6e;
     --border-dark:    3px solid var(--palette-col-1);
     --border-sml-drk: 2px solid var(--palette-col-1);
 
@@ -31,10 +33,11 @@
     --b-radius-sml:   0.6rem;
 
     --padding:        1rem;
+    --padding-mid:    2rem;
     --padding-sml:    0.6rem;
     --gap:            2rem;
     --margin:         1rem;
-    --max-width:      30rem;
+    --max-width:      85%;
 
     --box-shadow:     0 0.5rem 1rem #0004;
     --alignment:      center;
@@ -70,9 +73,12 @@ main {
 body > header {
     display: flex;
     align-items: var(--alignment);
+    min-width: none;
 
-    padding: var(--padding);
+
+    padding: var(--padding-mid);
     background-color: var(--secondary-col);
+    font-size: 120%;
     a{
         color: var(--text-col);
         text-decoration: none;
@@ -98,8 +104,10 @@ main > h2 {
 #instruments {
     display: grid;
     gap: var(--gap);
-    grid-template-columns: repeat(auto-fit, minmax(min(40rem, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
     align-items: var(--alignment);
+    max-width: 80%;
+    margin-inline: auto;
     
     a{
         text-decoration: none;
@@ -116,14 +124,10 @@ main > h2 {
         border: var(--border);
         background-color: var(--back-col-panel);
         border-radius: var(--b-radius-sml);
-        max-width: 30rem;
-        min-width: 30rem;
-        margin-inline: auto;
 
         header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
         }
     }
 
@@ -134,7 +138,7 @@ main > h2 {
         border: var(--border);
         background-color: var(--back-col-panel);
         border-radius: var(--b-radius-sml);
-        min-width: 30rem;
+        max-width: 100%;
     }
 }
 
@@ -167,13 +171,18 @@ main > h2 {
         border-radius: var(--b-radius);
         padding: var(--padding);
         min-width: 20rem;
+
+        h4{
+            display: inline;
+        }
+
         a{
-            text-decoration: none;
             color: var(--text-col);
-        
+
             &:hover{
                 text-decoration: underline;
                 color: var(--link-col);
+                font-size: var(--hover-size);
             }
         }
     }
