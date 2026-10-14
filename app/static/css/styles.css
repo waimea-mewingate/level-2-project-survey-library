@@ -16,6 +16,7 @@
     --back-col:       var(--palette-col-2);
     --back-col-panel: #FFF;
     --panel-col-2:    #f7eed0;
+    --panel-col-3:   #F1DA8C;
     --back-col-2:     #f0e9d648;
 
     --border-col:     var(--palette-col-3);
@@ -168,7 +169,6 @@ main > h2 {
         border: var(--border);
         border-radius: var(--b-radius);
         padding: var(--padding);
-        min-width: 20rem;
 
         h4{
             display: inline;
@@ -190,7 +190,6 @@ main > h2 {
         border: var(--border);
         border-radius: var(--b-radius);
         padding: var(--padding);
-        min-width: 20rem;
         text-align: center;
 
         a{
@@ -203,6 +202,13 @@ main > h2 {
                 font-size: var(--hover-size);
             }
         }
+    }
+    .back{
+        font-size: larger;
+        font-weight: bold;
+        width: 60%;
+        border: var(--border-dark);
+        background-color: var(--panel-col-3);
     }
 
 }
@@ -265,10 +271,8 @@ div{
     }
 }
 .nav {
-    a{
-        h3{
+    h3{
         display: inline;
-        }
     }
     max-width: var(--width);
 }
@@ -300,5 +304,47 @@ h1{
     margin: var(--margin);
     span{
         font-weight: 600
+    }
+}
+
+/* Booking Form --------------------------------------------------*/
+.form{
+    h2{
+        margin-bottom: var(--margin-bigger);
+        background-color: var(--back-col-panel);
+        border-radius: var(--b-radius-sml);
+        padding: var(--padding);
+        margin-inline: auto;
+    }
+    form{
+        font-size: large;
+        padding: var(--padding);
+        background-color: var(--panel-col-3);
+        border-radius: var(--b-radius);
+        display: flex;
+        flex-direction: column;
+        padding: auto;
+        margin-inline: var(--margin-bigger);
+        label {
+            text-align: left;
+            font-weight: 600;
+        }
+        select, input, textarea {
+            margin-left: var(--margin);
+            max-width: 90%;
+        }
+        input[type="checkbox"] {
+            margin-left: 0%;
+        }
+        button{
+            font-size: larger;
+            font-weight: 600;
+            border: var(--border-sml-drk);
+            border-radius: var(--b-radius-sml);
+            &:hover{
+                background-color: var(--back-col-panel);
+            }
+        }
+
     }
 }
