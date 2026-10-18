@@ -21,6 +21,8 @@
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+    background: none;
+    border: none;
 
     .flash-message {
         width: 15rem;

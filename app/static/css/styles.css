@@ -38,6 +38,7 @@
     --padding-sml:    0.6rem;
     --gap:            2rem;
     --margin:         1rem;
+    --margin-sml:     0.5rem;
     --margin-bigger:  2rem;
     --width:          85%;
 
@@ -143,6 +144,13 @@ main > h2 {
 }
 
 /* Individual Instrument */
+.back{
+    font-size: larger;
+    font-weight: bold;
+    width: 60%;
+    border: var(--border-dark);
+    background-color: var(--panel-col-2);
+}
 
 #instrument{
     display: flex;
@@ -176,9 +184,10 @@ main > h2 {
 
         a{
             color: var(--text-col);
+            text-decoration: underline;
 
             &:hover{
-                text-decoration: underline;
+                text-decoration: none;
                 color: var(--link-col);
                 font-size: var(--hover-size);
             }
@@ -194,23 +203,23 @@ main > h2 {
 
         a{
             font-size: large;
-            text-decoration: none;
+            text-decoration: underline;
             color: var(--text-col);
             &:hover{
-                text-decoration: underline;
+                text-decoration: none;
                 color: var(--link-col);
                 font-size: var(--hover-size);
             }
         }
     }
     .back{
-        font-size: larger;
-        font-weight: bold;
-        width: 60%;
-        border: var(--border-dark);
-        background-color: var(--panel-col-3);
+        background-color: var(--panel-col-2);
+        border: var(--border-mid);
     }
-
+    p{
+        margin-block: var(--margin-sml);
+        font-weight:600;
+    }
 }
 
 /* Bookings --------------------------------------------------*/
@@ -289,6 +298,7 @@ h1{
     a{
         color: var(--text-col);
         &:hover{
+            text-decoration: none;
             color: var(--link-col);
             font-size: var(--hover-size);
         }
@@ -346,5 +356,8 @@ h1{
             }
         }
 
+    }
+    h4{
+        margin-bottom: --ma;
     }
 }

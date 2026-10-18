@@ -42,7 +42,7 @@ def show_instruments():
 def get_instrument(id):
     with connect_db() as db:
         sql = """
-        SELECT id, name, status, status_last_changed
+        SELECT id, name, status, status_last_changed, notes
         FROM instruments 
         WHERE id=?
         """
@@ -56,7 +56,7 @@ def get_instrument(id):
 def instrument_editing_form(id):
     with connect_db() as db:
         sql = """
-            SELECT id, name, status, status_last_changed
+            SELECT id, name, status, status_last_changed, notes
             FROM instruments
             WHERE id=?
         """
@@ -64,24 +64,27 @@ def instrument_editing_form(id):
         instrument = db.execute(sql, params).fetchone()
 
         return render_template("pages/edit_instrument_form.jinja", instrument=instrument)
+
     
 # Process ------------------------
 @app.post("/instrument/<int:id>")
 def update_instrument(id): 
 
     status = request.form.get('status', '').strip()
+    notes = request.form.get('notes', '').strip()
 
     with connect_db() as db:
         sql = """
             UPDATE instruments
-            SET status=?, status_last_changed = CURRENT_TIMESTAMP
+            SET status=?, status_last_changed = CURRENT_TIMESTAMP, notes=?
             WHERE id=?
         """
-        params = (status, id)
+        params = (status, notes, id)
         db.execute(sql, params)
 
         flash("Status updated", "success")
         return redirect(f"/instrument/{id}")
+
     
 #----------------------------------------------------------
 # New Instrument

@@ -43,8 +43,9 @@
 
             <h3>Requested from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
             <p><span>{{ booking.surveyor_name }}</span> requested {{ booking.created | format_human }}</p>
-
+    
             <a href="/booking/{{booking.id}}/edit">Edit</a><span> | </span> <a href="/booking/{{booking.id}}/delete">Delete</a>
+            <p>{{booking.notes}}</p>
 
         </article>
 

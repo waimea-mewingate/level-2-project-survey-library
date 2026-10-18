@@ -1,0 +1,26 @@
+{#=====================================================
+    Form for instrument status change
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+<article class="form">
+
+    <form method="post" action="/instrument/{{instrument.id}}/notes">
+        <label>
+            Notes
+            <textarea name="notes" placeholder="..." ></textarea>
+        </label>
+        <br>
+        <button>Update</button>
+
+    </form>
+
+
+</article>
+
+{% endblock %}
+

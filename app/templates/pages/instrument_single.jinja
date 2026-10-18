@@ -11,13 +11,13 @@
         <div class="status">
             <h2>{{instrument.status}}</h2>
             <h4>Last updated: </h4> <span>{{ instrument.status_last_changed | format_human }}</span><br>
-            
-            <a href="/instrument/{{instrument.id}}/edit">Update Status</a>
+            <p>{{instrument.notes}}</p>
+            <a href="/instrument/{{instrument.id}}/edit">Edit</a>
         </div>
 
-        <div class="bookings">
-            <a href="/bookings">All Bookings</a>
-            <a href="/bookings/history">History</a>
+        <div>
+            <a href="/bookings">All Bookings</a><span> | </span>
+            <a href="/bookings/history">History</a><span> | </span>
             <a href="/booking/new">New Booking</a>
         </div>
     </article>

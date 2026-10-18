@@ -24,7 +24,8 @@ class InstrumentTable:
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
             name   TEXT NOT NULL,
             status    TEXT NOT NULL,
-            status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            status_last_changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            notes       TEXT
         )
     """
 

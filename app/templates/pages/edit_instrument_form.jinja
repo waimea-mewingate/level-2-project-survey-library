@@ -7,20 +7,26 @@
 
 {% block content %}
 
-<article>
+<article class="form">
+    <h2>Edit Instrument</h2>
 
     <form method="post" action="/instrument/{{instrument.id}}">
-        <h3>Edit Instrument</h3>
-
+        <h3>{{instrument.name}}</h3>
         <label>
             Status
-            <select name="status" required>
+            <select name="status" required value="{{instrument.status}}">
                 <option>In Office - Richmond</option>
                 <option>In Office - Mot</option>
                 <option>In Use - In Field</option>
                 <option>Out for Servicing</option>
             </select>
         </label>
+        <br>
+        <label>
+            Notes
+            <textarea name="notes" placeholder="..." ></textarea>
+        </label>
+        <br>
         <button>Update</button>
 
     </form>

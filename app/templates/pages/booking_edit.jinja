@@ -7,10 +7,11 @@
 
 {% block content %}
 
-<article>
+<article class="form">
+
+    <h2>Edit Booking</h2>
 
     <form method="post" action="/booking/{{ booking.id }}">
-        <h3>Edit Booking</h3>
 
         <label>
             Instrument To Book
@@ -20,7 +21,7 @@
             {% endfor %}
             </select>
         </label>
-
+        <br>
         <label>
             Person Wanting Instrument
             <select name="surveyor" required>
@@ -29,27 +30,27 @@
             {% endfor %} 
             </select>
         </label>
-
+        <br>
         <label>
             Booking Start Date
-            <input name="startdate" type="date" placeholder="YYYY-MM-DD" required>     
+            <input name="startdate" type="date" value="{{booking.date_booked}}" required>     
         </label>
-
+        <br>
         <label>
             Booking End Date
-            <input name="enddate" type="date" placeholder="YYYY-MM-DD" required>
+            <input name="enddate" type="date" value="{{booking.booking_end}}" required>
         </label>
-        
+        <br>        
         <label>
             <input name="flexible" type="checkbox" {{ 'checked' if booking.flexible }}>
             Flexible?
         </label>
-
+        <br>
         <label>
             Notes
             <textarea name="notes" placeholder="..." ></textarea>
         </label>
-
+        <br>
         <button>Update</button>
 
     </form>
@@ -57,5 +58,8 @@
 
 </article>
 
+<div class="back">
+    <a href="/bookings">Back</a>
+</div>
 {% endblock %}
 

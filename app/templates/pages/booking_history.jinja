@@ -5,6 +5,11 @@
 {% extends 'pages/_base.jinja' %}
 
 {% block content %}
+<div class="nav">
+    <a href="/bookings">
+        <h3>Back to Bookings</h3>
+    </a>
+</div>
 
 <div class="filter">
     <h4>Filter By...</h4>
@@ -15,11 +20,6 @@
     <a href="/bookings/history/dini">DiNi Only |</a>
     <a href="/bookings/history">Clear</a>
 </div>
-<div class="nav">
-    <a href="/bookings">
-        <h3>Back to Bookings</h3>
-    </a>
-</div>
 
 <article class="bookings">
     <h1>Past Bookings</h1>
@@ -28,12 +28,11 @@
 
         <article class="booking">
 
-            <h2>{{ booking.instrument_name }} {{ "⿾" if booking.flexible }} </h2>
+            <h2>{{ booking.instrument_name }} {{ "⇵" if booking.flexible }} </h2>
 
             <h3>Booked from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
             <p><span>{{ booking.surveyor_name }}</span> requested {{ booking.created | format_human }}</p>
-
-            <a href="/booking/{{booking.id}}/edit">Edit</a>
+            <p>{{booking.notes}}</p>
 
         </article>
 
