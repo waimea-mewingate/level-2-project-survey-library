@@ -7,18 +7,17 @@ Implement the database, populated with test data. Create queries that retrieve t
 
 ### Specific Goals
 
-**Edit these goals as needed**
-
 - Implement the database
 - Add test data to the database
 - Create the following web pages:
-    - Home pages showing...
-    - Details page for ...
-    - Etc.
+    - Home pages showing all instruments and a bookings nav button
+    - Details page for each individual instrument, bookings page, book form, history page
+      
 - Develop SQL database queries to:
-    - Retrieve all ...
-    - Retrieve specific ...
-    - Etc.
+    - Retrieve all bookings/ past bookings
+    - Retrieve specific instruments, filter bookings
+    - Add bookings
+    - Edit "
 
 
 ## Seeding the DB
