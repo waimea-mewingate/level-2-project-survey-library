@@ -122,5 +122,5 @@ Dad liked option 1.
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+I now have a guide going forward- nice to get this
 
