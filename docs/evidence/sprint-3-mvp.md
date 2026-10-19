@@ -7,13 +7,12 @@ Continue to develop the web application to the point that it provides all key fu
 
 ### Specific Goals
 
-**Edit these goals as needed**
-
 - Create the following web pages:
-    - Form for ...
-    - Etc.
+    - Form for booking add, booking edit
+    - Display of all pages
+      
 - Develop SQL database queries to:
-    - Add a new ...
+    - Add a new booking
     - Etc.
 
 
