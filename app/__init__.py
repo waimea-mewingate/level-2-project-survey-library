@@ -482,7 +482,7 @@ def show_historical_dini_bookings():
     
 
 #-----------------------------------------------------------------------    
-# New Booking
+# New Booking (show form)
 #----------------------------------------------------------------------- 
 @app.get('/booking/new')
 def show_booking_form():
@@ -550,7 +550,7 @@ def add_booking():
         return redirect("/")
 
 #-----------------------------------------------------------------------    
-# Update booking
+# Update booking & show form
 #----------------------------------------------------------------------- 
 @app.get("/booking/<int:id>/edit")
 def booking_edit(id):

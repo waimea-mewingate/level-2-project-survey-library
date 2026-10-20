@@ -27,8 +27,7 @@ Implement the database, populated with test data. Create queries that retrieve t
 
 I still couldn't get the images to work so I just removed that function. I also added a whole booking-start & booking-end thing after this gif was recorded.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
+![Updated bookings table](screenshots/tables-updated.png)
 
 ## Testing FEATURE NAME HERE
 

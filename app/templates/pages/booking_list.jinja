@@ -7,6 +7,10 @@
 {% block content %}
 
 <div class="nav">
+    <a href="/">
+        <h3>Back</h3>
+    </a>
+    <h3> | </h3>
     <a href="/bookings/history">
         <h3>History</h3>
     </a>
@@ -14,10 +18,7 @@
     <a href="/booking/new">
         <h3>Add Booking</h3>
     </a>
-    <h3> | </h3>
-    <a href="/">
-        <h3>Back</h3>
-    </a>
+    
 </div>
 
 <div class="filter">
@@ -43,15 +44,16 @@
 
             <h3>Requested from {{ booking.date_booked | format("DD-MM") }} to {{ booking.booking_end | format("DD-MM") }}</h3>
             <p><span>{{ booking.surveyor_name }}</span> requested {{ booking.created | format_human }}</p>
-    
-            <a href="/booking/{{booking.id}}/edit">Edit</a><span> | </span> <a href="/booking/{{booking.id}}/delete">Delete</a>
+
             <p>{{booking.notes}}</p>
+
+            <a href="/booking/{{booking.id}}/edit">Edit</a><span> | </span> <a href="/booking/{{booking.id}}/delete">Delete</a>
 
         </article>
 
     {% else %}
 
-        <p>No Bookings!</p>
+        <p>No Future Bookings!</p>
 
     {% endfor %}
 

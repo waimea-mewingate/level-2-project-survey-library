@@ -100,6 +100,18 @@ main > h2 {
     margin-block: 2rem;
 }
 
+/* Footer -------------------------------------------------------*/
+footer{
+    display: flex;
+    min-width: none;
+    
+    padding: var(--padding-sml);
+    background-color: var(--back-col);
+    font-size: 120%;
+    position: fixed;
+    bottom: 0;
+}
+
 
 /* Instruments --------------------------------------------------*/
 

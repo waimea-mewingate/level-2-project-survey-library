@@ -4,13 +4,16 @@ by Maia Wingate
 
 ## Project Description
 
-This is an app that ...
+This is an app that is intended to help the Newton Survey workplace to keep track of surveying instruments and help avoid job need overlap.
 
 The app has the following key features:
-- Feature one
-- Feature two
-- Feature three
-- ...
+- Displaying instrument status
+- Displaying bookings and booking history (with filters)
+- Allowing people to make and edit either of the above.
+
+## Live Site
+
+https://level-2-project-survey-library.onrender.com
 
 
 ## Supporting Documents
@@ -25,20 +28,6 @@ Project Evidence
 - [Sprint 3: Final System Development](docs/evidence/sprint-3-final.md)
 - [Review: Project Final Review](docs/evidence/system-review.md)
 
-
-## Test Accounts
-
-The following user accounts have been created to demonstrate the features of the system:
-
-Test User 1:
-- Username: xxxxx
-- Password: xxxxx
-
-Test User 2:
-- Username: xxxxx
-- Password: xxxxx
-
-...
 
 
 ## Technologies Used
