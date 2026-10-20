@@ -25,7 +25,7 @@ Implement the database, populated with test data. Create queries that retrieve t
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I still couldn't get the images to work so I just removed that function. I also added a whole booking-start & booking-end thing after this gif was recorded.
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
