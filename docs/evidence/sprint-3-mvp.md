@@ -13,16 +13,18 @@ Continue to develop the web application to the point that it provides all key fu
       
 - Develop SQL database queries to:
     - Add a new booking
-    - Etc.
+    - Edit booking
+    - Edit Status / checkin
 
 
-## Testing FEATURE NAME HERE
+## Testing 
+
+Finally able to host my website, I sent my dad a link to get his feedback.
+![email screenshot of link](screenshots/sent-render.png)
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-![Placeholder](screenshots/placeholder.png)
 
 ### Changes / Improvements
 
@@ -58,7 +60,6 @@ Replace this text with notes any improvements you made as a result of the testin
 
 
 ## ETC...
-
 
 ## Sprint Review
 

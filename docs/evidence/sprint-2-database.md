@@ -25,21 +25,19 @@ Implement the database, populated with test data. Create queries that retrieve t
 
 ### Changes / Improvements
 
-I still couldn't get the images to work so I just removed that function. I also added a whole booking-start & booking-end thing after this gif was recorded.
+I still couldn't get the images to work so I just removed that function. I also added a whole booking-start & booking-end thing after this gif was recorded. Status ended up being a check in/out function
 
 ![Updated bookings table](screenshots/tables-updated.png)
 
-## Testing FEATURE NAME HERE
+## Testing Images :(
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+kept trying again and again to recreate from the guides the imaging function but have had no success so far. Stopped trying- the website still looks good I suppose
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Removed the nonfunctional image routes and references.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+!['after'](screenshots/image-removed.png)
 
 
 ## Testing FEATURE NAME HERE
@@ -60,5 +58,5 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+Welp, I now have a base from which to work further
 

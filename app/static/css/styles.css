@@ -14,19 +14,20 @@
     --link-col:       var(--palette-col-5);
 
     --back-col:       var(--palette-col-2);
-    --back-col-panel: #FFF;
+    --back-col-panel: #fff;
     --panel-col-2:    #f7eed0;
-    --panel-col-3:   #F1DA8C;
+    --panel-col-3:    #f1da8c;
     --back-col-2:     #f0e9d648;
 
     --border-col:     var(--palette-col-3);
+    --border-col-mid: #6e6e6e;
 
     --secondary-col:  var(--palette-col-4);
     --accent-col:     var(--palette-col-1);
 
     --border:         3px solid var(--border-col);
     --border-small:   2px solid var(--border-col);
-    --border-mid:     3px solid #6e6e6e;
+    --border-mid:     3px solid var(--border-col-mid);
     --border-dark:    3px solid var(--palette-col-1);
     --border-sml-drk: 2px solid var(--palette-col-1);
 
@@ -98,18 +99,6 @@ main > h2 {
     text-align: var(--alignment);
     font-size: 2rem;
     margin-block: 2rem;
-}
-
-/* Footer -------------------------------------------------------*/
-footer{
-    display: flex;
-    min-width: none;
-    
-    padding: var(--padding-sml);
-    background-color: var(--back-col);
-    font-size: 120%;
-    position: fixed;
-    bottom: 0;
 }
 
 
