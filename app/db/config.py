@@ -30,11 +30,11 @@ class InstrumentTable:
     """
 
     SEED_DATA = """
-        INSERT INTO instruments (name, status)
+        INSERT INTO instruments (name, status, notes)
         VALUES
-            ("12i GNSS", "In R Office"),
-            ("SX10 Station", "In R Office"),
-            ("DiNi Level", "In R Office")
+            ("12i GNSS", "In R Office", "Check for damage"),
+            ("SX10 Station", "In R Office", "[sample note]"),
+            ("DiNi Level", "In R Office", "PLEASE watch where you leave this!")
     """
 
 class SurveyorTable:
@@ -79,13 +79,13 @@ class BookingTable:
     
     """
     SEED_DATA = """
-        INSERT INTO bookings (date_booked, booking_end, instrument_booked, person_booking)
+        INSERT INTO bookings (date_booked, booking_end, instrument_booked, person_booking, notes)
         VALUES 
-            ( "2026-08-22", "2026-08-27" , 1, 2 ),
-            ( "2026-08-27", "2026-08-28" , 1, 5 ),
-            ( "2026-08-27", "2026-09-01" , 3, 1 ),
-            ( "2026-08-24", "2026-08-25" , 3, 2 ),
-            ( "2026-08-27", "2026-09-03" , 2, 3 )
+            ( "2026-08-22", "2026-08-27" , 1, 2, "" ),
+            ( "2026-08-27", "2026-08-28" , 1, 5, "[sample note]" ),
+            ( "2026-08-27", "2026-09-01" , 3, 1, "Past Booking!" ),
+            ( "2026-08-24", "2026-08-25" , 3, 2, "" ),
+            ( "2027-04-18", "2027-04-23" , 2, 3, "Remember to give Maia feedback- any is appreciated!")
     """
 #----------------------------------------------------------------------------
 # Table registry

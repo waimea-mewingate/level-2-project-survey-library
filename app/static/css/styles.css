@@ -219,7 +219,7 @@ main > h2 {
     }
     p{
         margin-block: var(--margin-sml);
-        font-weight:600;
+        font-weight: 600;
     }
 }
 
@@ -314,7 +314,10 @@ h1{
     padding: var(--padding);
     margin: var(--margin);
     span{
-        font-weight: 600
+        font-weight: 700
+    }
+    p{
+        font-weight: 600;
     }
 }
 

@@ -17,18 +17,18 @@ Continue to develop the web application to the point that it provides all key fu
     - Edit Status / checkin
 
 
-## Testing 
+## Reviewing/ Testing
 
-Finally able to host my website, I sent my dad a link to get his feedback.
+Finally able to host my website, I sent my dad a link to get his & his workmates' feedback.
 ![email screenshot of link](screenshots/sent-render.png)
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Got some positive results- a calendar was suggested, although I don't quite know if that is within my capabilities. I need some more suggestions!!! ><
+I did not get any reports of function issues.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Wondering if I could check for overlap between bookings and flag the bookings somehow?
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 

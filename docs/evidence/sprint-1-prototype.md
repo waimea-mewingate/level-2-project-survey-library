@@ -94,17 +94,6 @@ I did add some colours etc to figure out how some of it might go before sending 
 **NOTE** Only the first two pages are changed from the flow prototype and the only instrument link that works from the home page is the 12i, everything else is the same. This is to avoid going off-track in between feedback runs. 
 https://design.penpot.app/#/view?file-id=3be9e5e1-190f-8090-8008-7056285fd675&page-id=ddb7145f-a1be-80bb-8008-6c683cf92e3a&section=interactions&frame-id=d6288cb9-2f05-80f4-8008-6c684f808492&index=0&share-id=81f57451-85cc-819d-8008-71cb68118f68
 
-### Testing
-
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
-
-
 ## Refined UI Prototype
 
 Having established the layout of the UI screens, the prototype was refined visually, in terms of colour, fonts, etc.

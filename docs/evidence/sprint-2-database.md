@@ -58,5 +58,5 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ## Sprint Review
 
-Welp, I now have a base from which to work further
+Welp, I now have a base from which to work further...
 
