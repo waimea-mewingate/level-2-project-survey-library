@@ -16,6 +16,7 @@
         <label>
             Instrument To Book
             <select name="instrument" required>
+            <option></option>
             {% for instrument in instruments %}
                 <option value="{{ instrument.id }}">{{ instrument.name }}</option>
             {% endfor %}
@@ -25,6 +26,7 @@
         <label>
             Person Wanting Instrument
             <select name="surveyor" required>
+            <option></option>
             {% for surveyor in surveyors %}
                 <option value="{{ surveyor.id }}">{{ surveyor.name }}</option>
             {% endfor %} 
@@ -33,12 +35,12 @@
         <br>
         <label>
             Booking Start Date
-            <input name="startdate" type="date" placeholder="YYYY-MM-DD" required>     
+            <input name="startdate" type="datetime-local" placeholder="YYYY-MM-DDT9:00" required>     
         </label>
         <br>
         <label>
             Booking End Date
-            <input name="enddate" type="date" placeholder="YYYY-MM-DD" required>
+            <input name="enddate" type="datetime-local" placeholder="YYYY-MM-DDT17:00" required>
         </label>
         <br>
         <label>

@@ -132,22 +132,22 @@ def show_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked > CURRENT_DATE
+            WHERE bookings.startdate > CURRENT_DATE
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         params = ()
         bookings = db.execute(sql, params).fetchall()
@@ -164,22 +164,22 @@ def show_flex_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked > CURRENT_DATE AND bookings.flexible=1
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.flexible=1
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         
@@ -193,22 +193,22 @@ def show_fixed_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked > CURRENT_DATE AND bookings.flexible=0
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.flexible=0
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -222,22 +222,22 @@ def show_12i_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked > CURRENT_DATE AND bookings.instrument_booked=1
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.instrument=1
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -250,22 +250,22 @@ def show_sx10_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked > CURRENT_DATE AND bookings.instrument_booked=2
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.instrument=2
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -278,22 +278,22 @@ def show_dini_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate,  
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked > CURRENT_DATE AND bookings.instrument_booked=3
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.instrument=3
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -310,23 +310,23 @@ def show_history():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate,  
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked < CURRENT_DATE
+            WHERE bookings.startdate < CURRENT_DATE
             
-            ORDER BY date_booked DESC, created ASC
+            ORDER BY startdate DESC, created ASC
         """
         params = ()
         bookings = db.execute(sql, params).fetchall()
@@ -343,22 +343,22 @@ def show_historical_flex_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate,  
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=1
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.flexible=1
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
 
         """
         bookings = db.execute(sql).fetchall()
@@ -373,22 +373,22 @@ def show_historical_fixed_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate,
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.flexible=0
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.flexible=0
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         
@@ -403,22 +403,22 @@ def show_historical_12i_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=1
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.instrument=1
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -431,22 +431,22 @@ def show_historical_sx10_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=2
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.instrument=2
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -459,22 +459,22 @@ def show_historical_dini_bookings():
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate,  
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument, 
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             FROM bookings
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             
-            WHERE bookings.date_booked < CURRENT_DATE AND bookings.instrument_booked=3
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.instrument=3
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         bookings = db.execute(sql).fetchall()
         flash("Filtered", "success")
@@ -509,29 +509,29 @@ def show_booking_form():
 # Process -----------------------------
 @app.post("/booking")
 def add_booking():
-    date_booked = request.form.get('startdate' '').strip()
-    booking_end = request.form.get('enddate' '').strip()
+    startdate = request.form.get('startdate' '').strip()
+    enddate = request.form.get('enddate' '').strip()
     
     flexible = bool(request.form.get('flex'))
     
     booking_notes = request.form.get('notes' '').strip()
         
     instrument_name = request.form.get('instrument', '').strip()
-    person_booking = request.form.get('surveyor', '').strip()
+    surveyor = request.form.get('surveyor', '').strip()
 
     if not instrument_name:
         flash("Instrument is required", "error")
         return redirect("/booking/new")
     
-    if not person_booking:
+    if not surveyor:
         flash("Surveyor is required", "error")
         return redirect("/booking/new")
     
-    if not date_booked:
+    if not startdate:
         flash("Start date is required", "error")
         return redirect("/booking/new")
     
-    if not booking_end:
+    if not enddate:
         flash("End date is required", "error")
         return redirect("/booking/new")
     
@@ -540,14 +540,14 @@ def add_booking():
     
     with connect_db() as db:
         sql = """
-            INSERT INTO bookings (date_booked, booking_end, flexible, notes, instrument_booked, person_booking)
+            INSERT INTO bookings (startdate, enddate, flexible, notes, instrument, surveyor)
             VALUES (?, ?, ?, ?, ?, ?)
         """
-        params = (date_booked, booking_end, flexible, notes, instrument_name, person_booking)
+        params = (startdate, enddate, flexible, notes, instrument_name, surveyor)
         db.execute(sql, params)
 
         flash("Booking added", "success")
-        return redirect("/")
+        return redirect("/bookings")
 
 #-----------------------------------------------------------------------    
 # Update booking & show form
@@ -577,22 +577,22 @@ def booking_edit(id):
             SELECT 
                 bookings.id, 
                 bookings.created, 
-                bookings.date_booked,
-                bookings.booking_end, 
+                bookings.startdate,
+                bookings.enddate, 
                 bookings.flexible, 
                 bookings.in_out, 
                 bookings.notes,
-                bookings.instrument_booked, 
-                bookings.person_booking,
+                bookings.instrument,
+                bookings.surveyor,
                 surveyors.name AS surveyor_name,
                 instruments.name AS instrument_name
             
             FROM bookings            
-            JOIN surveyors ON surveyors.id = bookings.person_booking
-            JOIN instruments ON instruments.id = bookings.instrument_booked
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
             WHERE bookings.id=?
             
-            ORDER BY date_booked DESC, created DESC
+            ORDER BY startdate DESC, created DESC
         """
         params = (id,)
         booking = db.execute(sql, params).fetchone()
@@ -603,25 +603,25 @@ def booking_edit(id):
 # Process -----------------------------
 @app.post("/booking/<int:id>")
 def update_booking(id):
-    date_booked = request.form.get('startdate' '').strip()
-    booking_end = request.form.get('enddate' '').strip()
+    startdate = request.form.get('startdate' '').strip()
+    enddate = request.form.get('enddate' '').strip()
     
     flexible = bool(request.form.get('flex'))
     
     booking_notes = request.form.get('notes' '').strip()
         
-    instrument_booked = request.form.get('instrument', '').strip()
-    person_booking = request.form.get('surveyor', '').strip()
+    instrument = request.form.get('instrument', '').strip()
+    surveyor = request.form.get('surveyor', '').strip()
     
-    notes = html.escape(booking_notes) if not None else null  
+    notes = html.escape(booking_notes) if not None else None  
 
     with connect_db() as db:
         sql = """
             UPDATE bookings
-            SET date_booked=?, booking_end=?, flexible=?, notes=?, instrument_booked=?, person_booking=?
+            SET startdate=?, enddate=?, flexible=?, notes=?, instrument=?, surveyor=?
             WHERE id=?
         """
-        params = (date_booked, booking_end, flexible, notes, instrument_booked, person_booking, id)
+        params = (startdate, enddate, flexible, notes, instrument, surveyor, id)
         db.execute(sql, params)
 
         flash("Booking updated", "success")

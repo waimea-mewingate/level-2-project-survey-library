@@ -15,7 +15,8 @@
 
         <label>
             Instrument To Book
-            <select name="instrument" required>
+            <select name="instrument" value="{{booking.instrument_name}}" required>
+            <option></option>
             {% for instrument in instruments %}
                 <option value="{{ instrument.id }}">{{ instrument.name }}</option>
             {% endfor %}
@@ -24,7 +25,8 @@
         <br>
         <label>
             Person Wanting Instrument
-            <select name="surveyor" required>
+            <select name="surveyor" value="{{booking.surveyor_name}}" required >
+            <option></option>
             {% for surveyor in surveyors %}
                 <option value="{{ surveyor.id }}">{{ surveyor.name }}</option>
             {% endfor %} 
@@ -33,14 +35,14 @@
         <br>
         <label>
             Booking Start Date
-            <input name="startdate" type="date" value="{{booking.date_booked}}" required>     
+            <input name="startdate" type="datetime-local" value="{{booking.startdate}}" required>     
         </label>
         <br>
         <label>
             Booking End Date
-            <input name="enddate" type="date" value="{{booking.booking_end}}" required>
+            <input name="enddate" type="datetime-local" value="{{booking.enddate}}" required>
         </label>
-        <br>        
+        <br>      
         <label>
             <input name="flexible" type="checkbox" {{ 'checked' if booking.flexible }}>
             Flexible?
@@ -48,7 +50,7 @@
         <br>
         <label>
             Notes
-            <textarea name="notes" placeholder="..." ></textarea>
+            <textarea name="notes" value="{{booking.notes}}" ></textarea>
         </label>
         <br>
         <button>Update</button>

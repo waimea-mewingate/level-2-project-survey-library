@@ -33,18 +33,18 @@ Wondering if I could check for overlap between bookings and flag the bookings so
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
-## Testing FEATURE NAME HERE
+## Testing of More Features!
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+As per a new bout of feedback, I got a whole lot of requests from Kirsten! Here I am testing- 
+- Adding a time for the booking so instruments can be booked within one day
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+Here is the booking form beforehand:
+![Form beforehand](screenshots/formb4.png)
 
-### Changes / Improvements
+Testing:
+![test gif](screenshots/formtestfeatures.gif)
 
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
+It all worked! :)
 
 ## Testing FEATURE NAME HERE
 

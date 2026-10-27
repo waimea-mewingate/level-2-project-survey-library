@@ -33,8 +33,11 @@ class InstrumentTable:
         INSERT INTO instruments (name, status, notes)
         VALUES
             ("12i GNSS", "In R Office", "Check for damage"),
-            ("SX10 Station", "In R Office", "[sample note]"),
-            ("DiNi Level", "In R Office", "PLEASE watch where you leave this!")
+            ("SX10 Station", "In Office - Mot", "[sample note]"),
+            ("DiNi Level", "In R Office", "PLEASE watch where you leave this!"),
+            ("R10 GNSS", "In Office - Mot", ""),
+            ("S6 Station", "Out For Servicing", ""),
+            ("Mavic Drone", "In Use - In Field", "")
     """
 
 class SurveyorTable:
@@ -64,28 +67,28 @@ class BookingTable:
         CREATE TABLE bookings (
             id          INTEGER PRIMARY KEY AUTOINCREMENT,
             created     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            date_booked DATE NOT NULL,
-            booking_end DATE NOT NULL,
+            startdate   DATETIME NOT NULL,
+            enddate     DATETIME NOT NULL,
             flexible    BOOLEAN DEFAULT 1,
             in_out      BOOLEAN DEFAULT 1,
             notes       TEXT,
             
-            instrument_booked   INTEGER NOT NULL,
-            person_booking      INTEGER NOT NULL,
+            instrument     INTEGER NOT NULL,
+            surveyor         INTEGER NOT NULL,
 
-            FOREIGN KEY (instrument_booked) REFERENCES instruments(id),
-            FOREIGN KEY (person_booking)    REFERENCES surveyors(id)
+            FOREIGN KEY (instrument) REFERENCES instruments(id),
+            FOREIGN KEY (surveyor)    REFERENCES surveyors(id)
         )
     
     """
     SEED_DATA = """
-        INSERT INTO bookings (date_booked, booking_end, instrument_booked, person_booking, notes)
+        INSERT INTO bookings (startdate, enddate, instrument, surveyor, notes)
         VALUES 
-            ( "2026-08-22", "2026-08-27" , 1, 2, "" ),
-            ( "2026-08-27", "2026-08-28" , 1, 5, "[sample note]" ),
-            ( "2026-08-27", "2026-09-01" , 3, 1, "Past Booking!" ),
-            ( "2026-08-24", "2026-08-25" , 3, 2, "" ),
-            ( "2027-04-18", "2027-04-23" , 2, 3, "Remember to give Maia feedback- any is appreciated!")
+            ( "2026-08-22T09:00", "2026-08-27T15:00" , 1, 2, "" ),
+            ( "2026-08-27T09:00", "2026-08-28T15:00" , 1, 5, "[sample note]" ),
+            ( "2026-08-27T09:00", "2026-09-01T15:00" , 3, 1, "Past Booking!" ),
+            ( "2026-08-24T09:00", "2026-08-25T15:00" , 3, 2, "" ),
+            ( "2027-04-18T09:00", "2027-04-23T15:00" , 2, 3, "Remember to give Maia feedback- any is appreciated! Also, this site will update after every work session I do :)")
     """
 #----------------------------------------------------------------------------
 # Table registry

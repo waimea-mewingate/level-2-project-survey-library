@@ -17,9 +17,9 @@ Use advanced techniques to develop a database means that, taking into account th
    - [x] **Data Types** - a range of data types used
    - [x] **Key Fields** - primary keys for each table, foreign keys for relationships
    - [x] **Values** - auto-generation / default values as required
-   - [ ] Source and structure of **Input Data** is described
-   - [ ] Type and format of **Output Data** is described
-   - [ ] **Processing of Data** to achieve the output is described
+   - [x] Source and structure of **Input Data** is described
+   - [x] Type and format of **Output Data** is described
+   - [x] **Processing of Data** to achieve the output is described
 
 3. You should use appropriate tools and advanced techniques to organise and query the data:
    - [x] **Linking data in related tables** using queries or keys
@@ -64,7 +64,7 @@ Use advanced techniques to develop an informed database means **all the criteria
 Use advanced techniques to develop a refined database means **all of the criteria for Merit**, plus:
 
 1. You have made iterative improvements throughout the design, development and testing process:
-   - [ ] You have refined features of the DB (the schema and the UI) over **multiple iterations**
+   - [x] You have refined features of the DB (the schema and the UI) over **multiple iterations**
    - [ ] Each iteration is **clearly documented**, showing testing and resulting refinements
 
 2. You must have used efficient tools and techniques in the system's production:
@@ -73,7 +73,7 @@ Use advanced techniques to develop a refined database means **all of the criteri
    - [ ] You have **effectively used tools** like DrawSQL, Figma, VS Code, Turso SQL editor, etc. to help develop the outcome
 
 3. You present the data from the database effectively for the purpose and end users:
-   - [ ] Data is displayed in ways that make its **meaning clear** (e.g. using colour)
+   - [x] Data is displayed in ways that make its **meaning clear** (e.g. using colour)
    - [ ] Data is **displayed in interesting and creative ways** to meet the needs of the user and satisfy the system requirements
 
 
@@ -101,7 +101,7 @@ Use advanced techniques to develop a digital media outcome means that, taking in
    - [x] You have **automated aspects of your system** through scripts (e.g. Python)
 
 3. You must apply appropriate data integrity and testing procedures:
-   - [ ] All webpage text should be checked for **accuracy** (e.g. spell-checked)
+   - [x] All webpage text should be checked for **accuracy** (e.g. spell-checked)
    - [x] Any **data shown is as expected** (i.e. matches database / calculated values)
 
 4. You need to explain and address relevant implications:
@@ -134,7 +134,7 @@ Use advanced techniques to develop an informed digital media outcome means **all
 Use advanced techniques to develop a refined digital media outcome means **all of the criteria for Merit**, plus:
 
 1. You have made iterative improvements throughout the design, development and testing process:
-   - [ ] You have refined features of the web site (layout, theme, etc.) over **multiple iterations**
+   - [x] You have refined features of the web site (layout, theme, etc.) over **multiple iterations**
    - [ ] Each iteration is **clearly documented**, showing testing and resulting refinements
 
 2. You have used efficient tools and techniques in the web site's production:
