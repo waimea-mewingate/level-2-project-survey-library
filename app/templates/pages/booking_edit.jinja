@@ -15,10 +15,10 @@
 
         <label>
             Instrument To Book
-            <select name="instrument" value="{{booking.instrument_name}}" required>
+            <select name="instrument" required >
             <option></option>
             {% for instrument in instruments %}
-                <option value="{{ instrument.id }}">{{ instrument.name }}</option>
+                <option value="{{ instrument.id }}" {{ 'selected' if instrument.id == booking.instrument }} >{{ instrument.name }}</option>
             {% endfor %}
             </select>
         </label>
@@ -28,7 +28,7 @@
             <select name="surveyor" value="{{booking.surveyor_name}}" required >
             <option></option>
             {% for surveyor in surveyors %}
-                <option value="{{ surveyor.id }}">{{ surveyor.name }}</option>
+                <option value="{{ surveyor.id }}" {{ 'selected' if surveyor.id == booking.surveyor }}>{{ surveyor.name }}</option>
             {% endfor %} 
             </select>
         </label>
@@ -50,7 +50,7 @@
         <br>
         <label>
             Notes
-            <textarea name="notes" value="{{booking.notes}}" ></textarea>
+            <textarea name="notes">{{booking.notes}}</textarea>
         </label>
         <br>
         <button>Update</button>

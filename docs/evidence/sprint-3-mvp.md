@@ -29,32 +29,34 @@ I did not get any reports of function issues.
 ### Changes / Improvements
 
 Wondering if I could check for overlap between bookings and flag the bookings somehow?
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+NB: too complex.
 
 
 ## Testing of More Features!
 
-As per a new bout of feedback, I got a whole lot of requests from Kirsten! Here I am testing- 
-- Adding a time for the booking so instruments can be booked within one day
+As per a new bout of feedback, I got a whole lot of requests from Kirsten! As much as I would like them for something to do, a lot of them are outside the scope of this project. So, here I am testing- 
+- Adding a time for the booking so instruments can be booked within one day.
 
 Here is the booking form beforehand:
 ![Form beforehand](screenshots/formb4.png)
 
+Afterward, I changed the date to datetime.
+
 Testing:
 ![test gif](screenshots/formtestfeatures.gif)
 
-It all worked! :)
+It all worked fine first go :)
 
-## Testing FEATURE NAME HERE
+## Testing Booking Edit
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I thought I knew how to do the autofill. It works for the datetimes. Why not for the dropdown options??
+Also now the flexibility is playing up.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![broken edit process](screenshots/brokenedit.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Talked to teacher to get the correct formatting to fix it. YAY! The dropdowns needed a 'selected' if... & the checkbox just had a typo (whoops again) - with this I fixed the notes as well to get the autofill working at last!! 
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 

@@ -147,7 +147,7 @@ def show_bookings():
             
             WHERE bookings.startdate > CURRENT_DATE
             
-            ORDER BY startdate DESC, created DESC
+            ORDER BY startdate ASC, created DESC
         """
         params = ()
         bookings = db.execute(sql, params).fetchall()
@@ -550,7 +550,7 @@ def add_booking():
         return redirect("/bookings")
 
 #-----------------------------------------------------------------------    
-# Update booking & show form
+# Edit booking & show form
 #----------------------------------------------------------------------- 
 @app.get("/booking/<int:id>/edit")
 def booking_edit(id):
@@ -592,7 +592,6 @@ def booking_edit(id):
             JOIN instruments ON instruments.id = bookings.instrument
             WHERE bookings.id=?
             
-            ORDER BY startdate DESC, created DESC
         """
         params = (id,)
         booking = db.execute(sql, params).fetchone()
@@ -606,7 +605,7 @@ def update_booking(id):
     startdate = request.form.get('startdate' '').strip()
     enddate = request.form.get('enddate' '').strip()
     
-    flexible = bool(request.form.get('flex'))
+    flexible = bool(request.form.get('flexible'))
     
     booking_notes = request.form.get('notes' '').strip()
         
