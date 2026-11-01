@@ -21,33 +21,31 @@ Changed the booking screen around a bit - displayed time nicer with the date, ad
 ![updated screen 29/10](screenshots/bookingsupdated2910.png)
 
 
-## Testing FEATURE NAME HERE
+## Testing Instrument Update Form
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+It did not show up with the autofill - same issue as with the bookings earlier in sprint 3. 
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Used the same methods to fix it:
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![gif of showcase- fixed edit screen](screenshots/editinst-fixed.gif)
 
 
-## Testing FEATURE NAME HERE
+## Testing navigation- all screens
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I am testing all screens- no input, just nav. 
+From every screen I will go through each link - though I will only use one instrument as they all should work the same.
+![navigating through all screens](screenshots/navshowcase.gif)
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+It all worked fine.
+
+## Testing Filters
+
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
-## ETC...
 
 
 ## Sprint Review

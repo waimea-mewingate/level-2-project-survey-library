@@ -57,13 +57,10 @@ Also now the flexibility is playing up.
 ### Changes / Improvements
 
 Talked to teacher to get the correct formatting to fix it. YAY! The dropdowns needed a 'selected' if... & the checkbox just had a typo (whoops again) - with this I fixed the notes as well to get the autofill working at last!! 
+Yay now everything saves when you go to edit the booking
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
-## ETC...
+![fixed!](screenshots/fixededit.gif)
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
-
+I believe everything works properly now!

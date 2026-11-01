@@ -14,17 +14,17 @@
         <h3>{{instrument.name}}</h3>
         <label>
             Status
-            <select name="status" required value="{{instrument.status}}">
-                <option>In Office - Richmond</option>
-                <option>In Office - Mot</option>
-                <option>In Use - In Field</option>
-                <option>Out for Servicing</option>
+            <select name="status" required>
+                <option {{'selected' if instrument.status == 'In Office - Richmond' }}>In Office - Richmond</option>
+                <option {{'selected' if instrument.status == 'In Office - Mot' }}>In Office - Mot</option>
+                <option {{'selected' if instrument.status == 'In Use - In Field' }}>In Use - In Field</option>
+                <option {{'selected' if instrument.status == 'Out for Servicing' }}>Out for Servicing</option>
             </select>
         </label>
         <br>
         <label>
             Notes (opt)
-            <textarea name="notes" placeholder="..." ></textarea>
+            <textarea name="notes" placeholder="..." >{{instrument.notes}}</textarea>
         </label>
         <br>
         <button>Update</button>
