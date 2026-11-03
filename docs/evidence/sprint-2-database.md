@@ -17,10 +17,11 @@ Implement the database, populated with test data. Create queries that retrieve t
     - Retrieve all bookings/ past bookings
     - Retrieve specific instruments, filter bookings
     - Add bookings
-    - Edit "
+    - Edit bookings
 
 
 ## Seeding the DB
+
 ![gif of tables](screenshots/tables-seeded.gif)
 
 ### Changes / Improvements
@@ -38,22 +39,6 @@ kept trying again and again to recreate from the guides the imaging function but
 Removed the nonfunctional image routes and references.
 
 !['after'](screenshots/image-removed.png)
-
-
-## Testing FEATURE NAME HERE
-
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
-## ETC...
 
 
 ## Sprint Review

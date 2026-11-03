@@ -15,9 +15,12 @@
     <h4>Filter By...</h4>
     <a href="/bookings/history/flex">Flexible |</a>
     <a href="/bookings/history/fixed">Fixed |</a>
-    <a href="/bookings/history/12i">12i Only |</a>
-    <a href="/bookings/history/sx10">SX10 Only |</a>
-    <a href="/bookings/history/dini">DiNi Only |</a>
+    <a href="/bookings/history/12i">12i |</a>
+    <a href="/bookings/history/sx10">SX10 |</a>
+    <a href="/bookings/history/dini">DiNi |</a>
+    <a href="/bookings/history/r10">R10 |</a>
+    <a href="/bookings/history/s6">S6 |</a>
+    <a href="/bookings/history/mavic">Mavic |</a>
     <a href="/bookings/history">Clear</a>
 </div>
 
@@ -30,8 +33,7 @@
 
             <h2>{{ booking.instrument_name }} {{ "⇵" if booking.flexible }} </h2>
 
-            <h3>{{ booking.startdate | format("DD MMM 'YY") }} to {{ booking.enddate | format("DD MMM 'YY") }}</h3>
-            <h3>{{ booking.startdate | format_time }} to {{ booking.enddate | format_time }}</h3>
+            <h3>{{ booking.startdate | format("DD MMM 'YY HH:mm") }} &nbsp;➤&nbsp; {{ booking.enddate | format("DD MMM 'YY HH:mm") }}</h3>
 
             <p><span>{{ booking.surveyor_name }}</span> requested {{ booking.created | format_human }}</p>
             <p>{{booking.notes}}</p>

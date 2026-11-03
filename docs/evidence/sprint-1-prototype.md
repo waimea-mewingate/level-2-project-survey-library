@@ -39,7 +39,7 @@ I have created a schema for the DB that I will talk through with my end-user. It
     - a check in/out for the instrument, 
     - and any notes. 
 
-![v1 DB schema](screenshots/schema-v1.png)
+![v1 DB schema](screenshots/schema-v1.jpeg)
 
 ### Required Data Input
 
@@ -111,5 +111,5 @@ Dad liked option 1.
 
 ## Sprint Review
 
-I now have a guide going forward- nice to get this
+I now have a guide going forward- nice to get this done with
 

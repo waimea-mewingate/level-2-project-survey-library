@@ -32,7 +32,7 @@ Use advanced techniques to develop a database means that, taking into account th
 
 5. You must apply appropriate data integrity and testing procedures:
    - [ ] Show that any **presented data is correct** (e.g. matches database values / calculations)
-   - [ ] Show that any input user data **updates the database as expected**
+   - [x] Show that any input user data **updates the database as expected**
 
 6. You need to explain and address relevant implications:
    - [x] Identify the **implications most relevant** to your project
@@ -47,8 +47,8 @@ Use advanced techniques to develop a database means that, taking into account th
 Use advanced techniques to develop an informed database means **all the criteria for Achieved**, plus:
 
 1. You should use information from testing procedures to improve the quality of your database:
-   - [ ] Show **evidence of your testing**, particularly with end-users
-   - [ ] Show the **improvements made** as a result
+   - [x] Show **evidence of your testing**, particularly with end-users
+   - [x] Show the **improvements made** as a result
 
 2. You should structure, organise and query your data logically:
    - [x] Your tables should be **normalised** (no repeating data)
@@ -69,8 +69,8 @@ Use advanced techniques to develop a refined database means **all of the criteri
 
 2. You must have used efficient tools and techniques in the system's production:
    - [ ] You have effectively used **version control**
-   - [ ] Your git **commits are regular with descriptive commit messages**
-   - [ ] You have **effectively used tools** like DrawSQL, Figma, VS Code, Turso SQL editor, etc. to help develop the outcome
+   - [x] Your git **commits are regular with descriptive commit messages**
+   - [x] You have **effectively used tools** like DrawSQL, Figma, VS Code, Turso SQL editor, etc. to help develop the outcome
 
 3. You present the data from the database effectively for the purpose and end users:
    - [x] Data is displayed in ways that make its **meaning clear** (e.g. using colour)
@@ -118,8 +118,8 @@ Use advanced techniques to develop a digital media outcome means that, taking in
 Use advanced techniques to develop an informed digital media outcome means **all the criteria for Achieved**, plus:
 
 1. You should use information from testing procedures to improve the quality of your web site:
-   - [ ] Show **evidence of your testing**, particularly with end-users
-   - [ ] Show the **improvements made** as a result
+   - [x] Show **evidence of your testing**, particularly with end-users
+   - [x] Show the **improvements made** as a result
 
 2. You have used testing tools to help improve your web site:
    - [ ] You have used **code validation** tools for generated HTML and CSS

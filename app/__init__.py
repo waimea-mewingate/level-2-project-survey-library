@@ -299,6 +299,89 @@ def show_dini_bookings():
         flash("Filtered", "success")
     return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: DiNi")
 
+@app.get("/bookings/r10")
+def show_r10_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.startdate,
+                bookings.enddate,  
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument, 
+                bookings.surveyor,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            FROM bookings
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
+            
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.instrument=4
+            
+            ORDER BY startdate DESC, created DESC
+        """
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: R10")
+
+@app.get("/bookings/s6")
+def show_s6_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.startdate,
+                bookings.enddate,  
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument, 
+                bookings.surveyor,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            FROM bookings
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
+            
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.instrument=5
+            
+            ORDER BY startdate DESC, created DESC
+        """
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: S6")
+
+@app.get("/bookings/mavic")
+def show_mavic_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.startdate,
+                bookings.enddate,  
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument, 
+                bookings.surveyor,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            FROM bookings
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
+            
+            WHERE bookings.startdate > CURRENT_DATE AND bookings.instrument=6
+            
+            ORDER BY startdate DESC, created DESC
+        """
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_list.jinja", bookings=bookings, title="Filtered: Mavic")
 
 #-----------------------------------------------------------------------    
 # Booking History
@@ -480,6 +563,89 @@ def show_historical_dini_bookings():
         flash("Filtered", "success")
     return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: DiNi")
     
+@app.get("/bookings/history/r10")
+def show_historical_r10_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.startdate,
+                bookings.enddate, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument, 
+                bookings.surveyor,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            FROM bookings
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
+            
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.instrument=4
+            
+            ORDER BY startdate DESC, created DESC
+        """
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: R10")
+
+@app.get("/bookings/history/s6")
+def show_historical_s6_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.startdate,
+                bookings.enddate, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument, 
+                bookings.surveyor,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            FROM bookings
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
+            
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.instrument=5
+            
+            ORDER BY startdate DESC, created DESC
+        """
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: S6")
+
+@app.get("/bookings/history/mavic")
+def show_historical_mavic_bookings():
+    with connect_db() as db:
+        sql = """
+            SELECT 
+                bookings.id, 
+                bookings.created, 
+                bookings.startdate,
+                bookings.enddate, 
+                bookings.flexible, 
+                bookings.in_out, 
+                bookings.notes,
+                bookings.instrument, 
+                bookings.surveyor,
+                surveyors.name AS surveyor_name,
+                instruments.name AS instrument_name
+            FROM bookings
+            JOIN surveyors ON surveyors.id = bookings.surveyor
+            JOIN instruments ON instruments.id = bookings.instrument
+            
+            WHERE bookings.startdate < CURRENT_DATE AND bookings.instrument=6
+            
+            ORDER BY startdate DESC, created DESC
+        """
+        bookings = db.execute(sql).fetchall()
+        flash("Filtered", "success")
+    return render_template("pages/booking_history.jinja", bookings=bookings, title="Filtered: Mavic")
 
 #-----------------------------------------------------------------------    
 # New Booking (show form)
