@@ -1,7 +1,7 @@
-title: Flask Project Template
-description: A starter Flask, Jinja and SQLite project
-author: Digital Technologies Dept.
+title: Survey Library
+description: A tool to help coordinate survey instruments for varying jobs.
+author: Maia Wingate
 
 # If development is true, guides will be shown
-development: true
-picotheme: azure
+development: false
+picotheme: lemon

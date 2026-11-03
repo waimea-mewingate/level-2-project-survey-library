@@ -2,14 +2,19 @@
 
 ## Addressing Relevant Implications
 
-### NAME OF IMPLICATION 1
+### Usability
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I have kept things consistent to the best of my ability- using the same style and base template for each page type. All pages are minimal and all screens are accessible in one or two clicks. Flash messages appear after updating instruments, updating bookings, deleting bookings, and adding bookings. Information is sectioned off and links are kept in their own sections.
 
 
-### NAME OF IMPLICATION 2
+### Accessibility
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+Colour scheme is B/W/Y and contrast is essentially B/W except for a few uses- in which case I ran the combinations through a contrast checker:
+#404040 -> text & \
+#f1da8c-> background
+![results](contrastresults.png)
+& #f7eed0 -> background
+
 
 
 ### NAME OF IMPLICATION 3
