@@ -1,6 +1,6 @@
 # AS91892 (Database) Achievement Criteria
 
-*To help you keep track of how successfully you are meeting the achievement criteria, the items below are in the form of a checklist - mark them off as you work through the project*
+*This checklist is filled out, more or less. Things that are left blank I am not so sure whether I have met- this is a guide*
 
 
 ## Achieve Criteria
@@ -56,7 +56,7 @@ Use advanced techniques to develop an informed database means **all the criteria
    - [x] Your database **queries are well-written and efficient**
 
 3. You need to address relevant implications:
-   - [ ] At the end of your project, you need to **explain what you did in your project to address each implication**
+   - [x] At the end of your project, you need to **explain what you did in your project to address each implication**
 
 
 ## Excellence Criteria
@@ -126,7 +126,7 @@ Use advanced techniques to develop an informed digital media outcome means **all
    - [ ] You have **fixed any issues** identified
 
 3. You need to address relevant implications:
-   - [ ] At the end of your project, you need to **explain what you did in your project to address each implication**
+   - [x] At the end of your project, you need to **explain what you did in your project to address each implication**
 
 
 ## Excellence Criteria
@@ -139,7 +139,7 @@ Use advanced techniques to develop a refined digital media outcome means **all o
 
 2. You have used efficient tools and techniques in the web site's production:
    - [ ] You have effectively used **version control**
-   - [ ] Your git **commits are regular with descriptive commit messages**
+   - [x] Your git **commits are regular with descriptive commit messages**
    - [ ] You have **effectively used tools** like DrawSQL, Figma, VS Code, Turso SQL editor, etc. to help develop the outcome
    - [x] You have made good use of **templates** (Jinja) to organise and structure content
    - [x] Your code is **commented** as needed
