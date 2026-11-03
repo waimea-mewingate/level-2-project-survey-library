@@ -9,13 +9,15 @@ I have kept things consistent to the best of my ability- using the same style an
 
 ### Accessibility
 
-Colour scheme is B/W/Y and contrast is essentially B/W except for a few uses- in which case I ran the combinations through a contrast checker:
-#404040 -> text & \
-#f1da8c-> background
-![results](contrastresults.png)
-& #f7eed0 -> background
+Colour scheme is B/W/Y and contrast is essentially B/W except for a few uses- in which case I ran the combinations through a contrast checker (I used the Adobe contrast checker): \
+#404040 -> text & #f1da8c-> background \
+![colour swatch](screenshots/swatch1.png)
+![results](screenshots/contrastresults.png) 
 
+as well as #f7eed0 -> background
 
+![colour swatch](screenshots/swatch2.png)
+![results](screenshots/contrastresults.png)
 
 ### NAME OF IMPLICATION 3
 
